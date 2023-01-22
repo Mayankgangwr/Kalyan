@@ -1,10 +1,17 @@
-import "./styles.css";
+import React, {useEffect, useState} from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from './home';
+import Layout from './Layout';
+import Master from './master';
+import axios from 'axios';
+const App = () =>{
 
-export default function App() {
-  return (
-    <div className="App">
-      <h1>Hello CodeSandbjujjox</h1>
-      <h2>Start editing to see some magic happen!</h2>
-    </div>
-  );
+    return(
+      <BrowserRouter>
+      <Routes>
+          <Route index element={<Master />} />
+      </Routes>
+    </BrowserRouter>
+);
 }
+export default App;
