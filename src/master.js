@@ -105,10 +105,43 @@ const Master = () => {
               </div>
             </div>
             {/*Grand Total Close */}
+            {/*Button Open */}
+            <div className="row box-row mt-2">
+              <div className="col-4">
+                <input
+                  type="text"
+                  className="form-control  w-100"
+                  placeholder="Cutting"
+                />
+              </div>
+              <div className="col-4">
+                <input
+                  type="text"
+                  className="form-control  w-100"
+                  placeholder="less"
+                />
+              </div>
+              <div className="col-4">
+                <button type="submit" className="btn btn-primary w-100">
+                  Create
+                </button>
+              </div>
+              <div className="col-6 mt-2">
+                <button type="submit" className="btn btn-primary w-100">
+                  Share SP
+                </button>
+              </div>
+              <div className="col-6 mt-2">
+                <button type="submit" className="btn btn-primary w-100">
+                  Copy SP
+                </button>
+              </div>
+            </div>
+            {/*Button Close */}
           </div>
           {/* Ps Panel Close */}
           {/*DP Panel Start */}
-          <div className="col-lg-4 col-md-4 col-12">
+          <div className="col-lg-4 col-md-4 col-12  mt-3 mt-lg-0 mt-md-0">
             <h6 className="card-title text-center">DP Panel</h6>
             {/*DP Box Start */}
             {dp.map((el) => (
@@ -186,6 +219,39 @@ const Master = () => {
               </div>
             </div>
             {/*Grand Total Close */}
+            {/*Button Open */}
+            <div className="row box-row mt-2">
+              <div className="col-4">
+                <input
+                  type="text"
+                  className="form-control  w-100"
+                  placeholder="Cutting"
+                />
+              </div>
+              <div className="col-4">
+                <input
+                  type="text"
+                  className="form-control  w-100"
+                  placeholder="less"
+                />
+              </div>
+              <div className="col-4">
+                <button type="submit" className="btn btn-primary w-100">
+                  Create
+                </button>
+              </div>
+              <div className="col-6 mt-2">
+                <button type="submit" className="btn btn-primary w-100">
+                  Share SP
+                </button>
+              </div>
+              <div className="col-6 mt-2">
+                <button type="submit" className="btn btn-primary w-100">
+                  Copy SP
+                </button>
+              </div>
+            </div>
+            {/*Button Close */}
             <h6 className="card-title text-center mt-1">TP Panel</h6>
             {/*TP Box Start */}
             <div key={`tp1`} className="row box-row">
@@ -319,10 +385,43 @@ const Master = () => {
               </div>
             </div>
             {/*Grand Total Close */}
+            {/*Button Open */}
+            <div className="row box-row mt-2">
+              <div className="col-4">
+                <input
+                  type="text"
+                  className="form-control  w-100"
+                  placeholder="Cutting"
+                />
+              </div>
+              <div className="col-4">
+                <input
+                  type="text"
+                  className="form-control  w-100"
+                  placeholder="less"
+                />
+              </div>
+              <div className="col-4">
+                <button type="submit" className="btn btn-primary w-100">
+                  Create
+                </button>
+              </div>
+              <div className="col-6 mt-2">
+                <button type="submit" className="btn btn-primary w-100">
+                  Share SP
+                </button>
+              </div>
+              <div className="col-6 mt-2">
+                <button type="submit" className="btn btn-primary w-100">
+                  Copy SP
+                </button>
+              </div>
+            </div>
+            {/*Button Close */}
           </div>
           {/*DP Panel Close */}
           {/*DP Panel Start */}
-          <div className="col-lg-4 col-md-4 col-12">
+          <div className="col-lg-4 col-md-4 col-12  mt-3 mt-lg-0 mt-md-0">
             <h6 className="card-title text-center">JODE</h6>
             {/*JODE Box Start */}
             {jode.map((el) => (
@@ -400,6 +499,39 @@ const Master = () => {
               </div>
             </div>
             {/*Grand Total Close */}
+            {/*Button Open */}
+            <div className="row box-row mt-2">
+              <div className="col-4">
+                <input
+                  type="text"
+                  className="form-control  w-100"
+                  placeholder="Cutting"
+                />
+              </div>
+              <div className="col-4">
+                <input
+                  type="text"
+                  className="form-control  w-100"
+                  placeholder="less"
+                />
+              </div>
+              <div className="col-4">
+                <button type="submit" className="btn btn-primary w-100">
+                  Create
+                </button>
+              </div>
+              <div className="col-6 mt-2">
+                <button type="submit" className="btn btn-primary w-100">
+                  Share SP
+                </button>
+              </div>
+              <div className="col-6 mt-2">
+                <button type="submit" className="btn btn-primary w-100">
+                  Copy SP
+                </button>
+              </div>
+            </div>
+            {/*Button Close */}
             <h6 className="card-title text-center mt-1">Single Close</h6>
             {/*Single Close Box Start */}
             <div key={`tp1`} className="row box-row">
@@ -533,6 +665,39 @@ const Master = () => {
               </div>
             </div>
             {/*Grand Total Close */}
+            {/*Button Open */}
+            <div className="row box-row mt-2">
+              <div className="col-4">
+                <input
+                  type="text"
+                  className="form-control  w-100"
+                  placeholder="Cutting"
+                />
+              </div>
+              <div className="col-4">
+                <input
+                  type="text"
+                  className="form-control  w-100"
+                  placeholder="less"
+                />
+              </div>
+              <div className="col-4">
+                <button type="submit" className="btn btn-primary w-100">
+                  Create
+                </button>
+              </div>
+              <div className="col-6 mt-2">
+                <button type="submit" className="btn btn-primary w-100">
+                  Share SP
+                </button>
+              </div>
+              <div className="col-6 mt-2">
+                <button type="submit" className="btn btn-primary w-100">
+                  Copy SP
+                </button>
+              </div>
+            </div>
+            {/*Button Close */}
           </div>
           {/*JODE Close */}
         </div>
