@@ -1,5 +1,8 @@
+body {
+  line-height: 18px !important;
+}
 .box-row {
-  margin: 1px;
+  margin: 0 1px;
 }
 .master-col {
   flex: 0 0 auto;
@@ -7,36 +10,48 @@
   margin-top: 3px;
   align-items: center;
 }
+
 .total-col {
   flex: 0 0 auto;
   width: 10%;
-  margin-top: 3px;
+  margin-top: 0px;
   align-items: center;
 }
 .box-no {
   font-size: 11px;
-  
+  line-height: 18px;
   margin: auto;
 }
 .total-no {
-  font-size: 16px;
+  font-size: 12px;
   margin: auto;
   color: green;
 }
 .amount-box {
   padding: 0;
   width: 38px;
-  height: 23px;
-  margin: 0 1.5px;
+  height: 18px;
+  margin: 0 1px;
   font-size: 12px;
   text-align: center;
 
   color: red;
 }
+.total-text-col {
+}
+.total-amount-col {
+}
+.grand-total-no {
+  font-size: 18px;
+}
 @media only screen and (min-width: 375px) and (max-width: 425px) {
+  body {
+    line-height: 17px !important;
+  }
   .box-no {
     font-size: 10px;
     margin: auto;
+    line-height: 17px;
   }
   .total-no {
     font-size: 12px;
