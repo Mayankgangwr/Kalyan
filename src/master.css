@@ -44,6 +44,10 @@ body {
 .grand-total-no {
   font-size: 18px;
 }
+.buttons {
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+}
 @media only screen and (min-width: 375px) and (max-width: 425px) {
   body {
     line-height: 17px !important;

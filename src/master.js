@@ -110,7 +110,7 @@ const Master = () => {
               <div className="col-4">
                 <input
                   type="text"
-                  className="form-control  w-100"
+                  className="form-control w-100"
                   placeholder="Cutting"
                 />
               </div>
@@ -122,17 +122,26 @@ const Master = () => {
                 />
               </div>
               <div className="col-4">
-                <button type="submit" className="btn btn-primary w-100">
+                <button
+                  type="submit"
+                  className="btn btn-primary w-100  buttons"
+                >
                   Create
                 </button>
               </div>
               <div className="col-6 mt-2">
-                <button type="submit" className="btn btn-primary w-100">
+                <button
+                  type="submit"
+                  className="btn btn-primary w-100  buttons"
+                >
                   Share SP
                 </button>
               </div>
               <div className="col-6 mt-2">
-                <button type="submit" className="btn btn-primary w-100">
+                <button
+                  type="submit"
+                  className="btn btn-primary w-100  buttons"
+                >
                   Copy SP
                 </button>
               </div>
@@ -236,17 +245,26 @@ const Master = () => {
                 />
               </div>
               <div className="col-4">
-                <button type="submit" className="btn btn-primary w-100">
+                <button
+                  type="submit"
+                  className="btn btn-primary w-100  buttons"
+                >
                   Create
                 </button>
               </div>
               <div className="col-6 mt-2">
-                <button type="submit" className="btn btn-primary w-100">
+                <button
+                  type="submit"
+                  className="btn btn-primary w-100  buttons"
+                >
                   Share SP
                 </button>
               </div>
               <div className="col-6 mt-2">
-                <button type="submit" className="btn btn-primary w-100">
+                <button
+                  type="submit"
+                  className="btn btn-primary w-100  buttons"
+                >
                   Copy SP
                 </button>
               </div>
@@ -402,17 +420,26 @@ const Master = () => {
                 />
               </div>
               <div className="col-4">
-                <button type="submit" className="btn btn-primary w-100">
+                <button
+                  type="submit"
+                  className="btn btn-primary w-100  buttons"
+                >
                   Create
                 </button>
               </div>
               <div className="col-6 mt-2">
-                <button type="submit" className="btn btn-primary w-100">
+                <button
+                  type="submit"
+                  className="btn btn-primary w-100  buttons"
+                >
                   Share SP
                 </button>
               </div>
               <div className="col-6 mt-2">
-                <button type="submit" className="btn btn-primary w-100">
+                <button
+                  type="submit"
+                  className="btn btn-primary w-100  buttons"
+                >
                   Copy SP
                 </button>
               </div>
@@ -516,17 +543,26 @@ const Master = () => {
                 />
               </div>
               <div className="col-4">
-                <button type="submit" className="btn btn-primary w-100">
+                <button
+                  type="submit"
+                  className="btn btn-primary w-100  buttons"
+                >
                   Create
                 </button>
               </div>
               <div className="col-6 mt-2">
-                <button type="submit" className="btn btn-primary w-100">
+                <button
+                  type="submit"
+                  className="btn btn-primary w-100  buttons"
+                >
                   Share SP
                 </button>
               </div>
               <div className="col-6 mt-2">
-                <button type="submit" className="btn btn-primary w-100">
+                <button
+                  type="submit"
+                  className="btn btn-primary w-100  buttons"
+                >
                   Copy SP
                 </button>
               </div>
@@ -682,17 +718,26 @@ const Master = () => {
                 />
               </div>
               <div className="col-4">
-                <button type="submit" className="btn btn-primary w-100">
+                <button
+                  type="submit"
+                  className="btn btn-primary w-100  buttons"
+                >
                   Create
                 </button>
               </div>
               <div className="col-6 mt-2">
-                <button type="submit" className="btn btn-primary w-100">
+                <button
+                  type="submit"
+                  className="btn btn-primary w-100  buttons"
+                >
                   Share SP
                 </button>
               </div>
               <div className="col-6 mt-2">
-                <button type="submit" className="btn btn-primary w-100">
+                <button
+                  type="submit"
+                  className="btn btn-primary w-100  buttons"
+                >
                   Copy SP
                 </button>
               </div>
