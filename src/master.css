@@ -48,6 +48,10 @@ body {
   padding-top: 5px !important;
   padding-bottom: 5px !important;
 }
+.box-h {
+  height: 28px;
+}
+
 @media only screen and (min-width: 375px) and (max-width: 425px) {
   body {
     line-height: 17px !important;

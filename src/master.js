@@ -24,7 +24,7 @@ const Master = () => {
           </div>
         </div>
       </nav>
-      <div className="container-fluid">
+      <div className="container-fluid pb-5">
         <div className="row mt-1">
           {/*Ps Panel Start*/}
           <div className="col-lg-4 col-md-4 col-12">
@@ -110,14 +110,14 @@ const Master = () => {
               <div className="col-4">
                 <input
                   type="text"
-                  className="form-control w-100"
+                  className="form-control w-100 box-h"
                   placeholder="Cutting"
                 />
               </div>
               <div className="col-4">
                 <input
                   type="text"
-                  className="form-control  w-100"
+                  className="form-control w-100 box-h"
                   placeholder="less"
                 />
               </div>
@@ -233,14 +233,14 @@ const Master = () => {
               <div className="col-4">
                 <input
                   type="text"
-                  className="form-control  w-100"
+                  className="form-control  w-100 box-h"
                   placeholder="Cutting"
                 />
               </div>
               <div className="col-4">
                 <input
                   type="text"
-                  className="form-control  w-100"
+                  className="form-control  w-100 box-h"
                   placeholder="less"
                 />
               </div>
@@ -408,14 +408,14 @@ const Master = () => {
               <div className="col-4">
                 <input
                   type="text"
-                  className="form-control  w-100"
+                  className="form-control  w-100 box-h"
                   placeholder="Cutting"
                 />
               </div>
               <div className="col-4">
                 <input
                   type="text"
-                  className="form-control  w-100"
+                  className="form-control  w-100 box-h"
                   placeholder="less"
                 />
               </div>
@@ -531,30 +531,24 @@ const Master = () => {
               <div className="col-4">
                 <input
                   type="text"
-                  className="form-control  w-100"
+                  className="form-control  w-100 box-h"
                   placeholder="Cutting"
                 />
               </div>
               <div className="col-4">
                 <input
                   type="text"
-                  className="form-control  w-100"
+                  className="form-control  w-100 box-h"
                   placeholder="less"
                 />
               </div>
               <div className="col-4">
-                <button
-                  type="submit"
-                  className="btn btn-primary w-100  buttons"
-                >
+                <button type="submit" className="btn btn-primary w-100 buttons">
                   Create
                 </button>
               </div>
               <div className="col-6 mt-2">
-                <button
-                  type="submit"
-                  className="btn btn-primary w-100  buttons"
-                >
+                <button type="submit" className="btn btn-primary w-100 buttons">
                   Share SP
                 </button>
               </div>
@@ -706,14 +700,14 @@ const Master = () => {
               <div className="col-4">
                 <input
                   type="text"
-                  className="form-control  w-100"
+                  className="form-control  w-100 box-h"
                   placeholder="Cutting"
                 />
               </div>
               <div className="col-4">
                 <input
                   type="text"
-                  className="form-control  w-100"
+                  className="form-control  w-100 box-h"
                   placeholder="less"
                 />
               </div>
@@ -746,6 +740,7 @@ const Master = () => {
           </div>
           {/*JODE Close */}
         </div>
+        <hr />
       </div>
     </>
   );
