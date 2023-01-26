@@ -1,6 +1,124 @@
 import React, { useEffect, useState } from "react";
 import "./master.css";
 const Master = () => {
+  const [data, setData] = useState([
+    {
+      key: 128,
+      num: 000,
+    },
+    {
+      key: 129,
+      num: 000,
+    },
+    {
+      key: 120,
+      num: 000,
+    },
+    {
+      key: 130,
+      num: 000,
+    },
+    {
+      key: 140,
+      num: 000,
+    },
+    {
+      key: 124,
+      num: 000,
+    },
+    {
+      key: 125,
+      num: 000,
+    },
+    {
+      key: 126,
+      num: 000,
+    },
+    {
+      key: 127,
+      num: 000,
+    },
+    {
+      key: 137,
+      num: 000,
+    },
+    {
+      key: 138,
+      num: 000,
+    },
+    {
+      key: 139,
+      num: 000,
+    },
+    {
+      key: 149,
+      num: 000,
+    },
+    {
+      key: 159,
+      num: 000,
+    },
+    {
+      key: 150,
+      num: 000,
+    },
+    {
+      key: 160,
+      num: 000,
+    },
+    {
+      key: 134,
+      num: 000,
+    },
+    {
+      key: 135,
+      num: 000,
+    },
+    {
+      key: 136,
+      num: 000,
+    },
+    {
+      key: 146,
+      num: 000,
+    },
+    {
+      key: 147,
+      num: 000,
+    },
+    {
+      key: 148,
+      num: 000,
+    },
+    {
+      key: 158,
+      num: 000,
+    },
+    {
+      key: 168,
+      num: 000,
+    },
+    {
+      key: 169,
+      num: 000,
+    },
+    {
+      key: 179,
+      num: 000,
+    },
+    {
+      key: 170,
+      num: 000,
+    },
+    {
+      key: 180,
+      num: 000,
+    },
+    {
+      key: 145,
+      num: 000,
+    },
+  ]);
   const sp = [
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
   ];
