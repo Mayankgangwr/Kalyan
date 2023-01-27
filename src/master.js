@@ -3,125 +3,132 @@ import "./master.css";
 const Master = () => {
   const [data, setData] = useState([
     {
-      key: 128,
-      num: 000,
+      key: "128",
+      num: 1000,
     },
     {
-      key: 129,
-      num: 000,
+      key: "129",
+      num: 1000,
     },
     {
-      key: 120,
-      num: 000,
+      key: "120",
+      num: 1000,
     },
     {
-      key: 130,
-      num: 000,
+      key: "130",
+      num: 1000,
     },
     {
-      key: 140,
-      num: 000,
+      key: "140",
+      num: 1000,
     },
     {
-      key: 124,
-      num: 000,
+      key: "123",
+      num: 1000,
     },
     {
-      key: 125,
-      num: 000,
+      key: "124",
+      num: 1000,
     },
     {
-      key: 126,
-      num: 000,
+      key: "125",
+      num: 1000,
     },
     {
-      key: 127,
-      num: 000,
+      key: "126",
+      num: 1000,
     },
     {
-      key: 137,
-      num: 000,
+      key: "127",
+      num: 1000,
     },
     {
-      key: 138,
-      num: 000,
+      key: "137",
+      num: 1000,
     },
     {
-      key: 139,
-      num: 000,
+      key: "138",
+      num: 1000,
     },
     {
-      key: 149,
-      num: 000,
+      key: "139",
+      num: 1000,
     },
     {
-      key: 159,
-      num: 000,
+      key: "149",
+      num: 1000,
     },
     {
-      key: 150,
-      num: 000,
+      key: "159",
+      num: 1000,
     },
     {
-      key: 160,
-      num: 000,
+      key: "150",
+      num: 1000,
     },
     {
-      key: 134,
-      num: 000,
+      key: "160",
+      num: 1000,
     },
     {
-      key: 135,
-      num: 000,
+      key: "134",
+      num: 1000,
     },
     {
-      key: 136,
-      num: 000,
+      key: "135",
+      num: 1000,
     },
     {
-      key: 146,
-      num: 000,
+      key: "136",
+      num: 1000,
     },
     {
-      key: 147,
-      num: 000,
+      key: "146",
+      num: 1000,
     },
     {
-      key: 148,
-      num: 000,
+      key: "147",
+      num: 1000,
     },
     {
-      key: 158,
-      num: 000,
+      key: "148",
+      num: 1000,
     },
     {
-      key: 168,
-      num: 000,
+      key: "158",
+      num: 1000,
     },
     {
-      key: 169,
-      num: 000,
+      key: "168",
+      num: 1000,
     },
     {
-      key: 179,
-      num: 000,
+      key: "169",
+      num: 1000,
     },
     {
-      key: 170,
-      num: 000,
+      key: "179",
+      num: 1000,
     },
     {
-      key: 180,
-      num: 000,
+      key: "170",
+      num: 1000,
     },
     {
-      key: 145,
-      num: 000,
+      key: "180",
+      num: 1000,
+    },
+    {
+      key: "145",
+      num: 1000,
     },
   ]);
-  const sp = [
+  const lent = data.length / 6;
+  const [total, setTotal] = useState([]);
+  /*const sp = [
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
-  ];
+  ];*/
+  const sp = [1, 2, 3, 4, 5];
   const dp = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
   const jode = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
   const tp = [1, 2];
@@ -148,59 +155,29 @@ const Master = () => {
           <div className="col-lg-4 col-md-4 col-12">
             <h6 className="card-title text-center">SP Panel</h6>
             {/*Box Start */}
-            {sp.map((el) => (
+
+            {sp.map((el, i) => (
               <div key={el} className="row box-row">
-                <div className="master-col d-flex justify-content-center">
-                  <label className="box-no">000</label>
-                  <input
-                    type="text"
-                    value={10000}
-                    className="form-control amount-box"
-                  />
-                </div>
-                <div className="master-col d-flex justify-content-center">
-                  <label className="box-no">000</label>
-                  <input
-                    type="text"
-                    value={10000}
-                    className="form-control amount-box"
-                  />
-                </div>
-                <div className="master-col d-flex justify-content-center">
-                  <label className="box-no">000</label>
-                  <input
-                    type="text"
-                    value={10000}
-                    className="form-control amount-box"
-                  />
-                </div>
-                <div className="master-col d-flex justify-content-center">
-                  <label className="box-no">000</label>
-                  <input
-                    type="text"
-                    value={10000}
-                    className="form-control amount-box"
-                  />
-                </div>
-                <div className="master-col d-flex justify-content-center">
-                  <label className="box-no">000</label>
-                  <input
-                    type="text"
-                    value={10000}
-                    className="form-control amount-box"
-                  />
-                </div>
-                <div className="master-col d-flex justify-content-center">
-                  <label className="box-no">000</label>
-                  <input
-                    type="text"
-                    value={10000}
-                    className="form-control amount-box"
-                  />
-                </div>
+                {data.slice(6 * i, i * 6 + 6).map((item) => (
+                  <div
+                    key={item.key}
+                    className="master-col d-flex justify-content-center"
+                  >
+                    <label className="box-no">{item.key}</label>
+                    <input
+                      type="text"
+                      value={item.num}
+                      className="form-control amount-box"
+                    />
+                  </div>
+                ))}
                 <div className="total-col ps-0">
                   <label className="total-no">
-                    <b>10000</b>
+                    <b>
+                      {data.slice(6 * i, i * 6 + 6).reduce((total, item) => {
+                        return total + item.num;
+                      }, 0)}
+                    </b>
                   </label>
                 </div>
               </div>
@@ -218,7 +195,11 @@ const Master = () => {
               </div>
               <div className="total-col ps-0">
                 <label className="grand-total-no mt-1">
-                  <b>10000</b>
+                  <b>
+                    {data.reduce((total, item) => {
+                      return total + item.num;
+                    }, 0)}
+                  </b>
                 </label>
               </div>
             </div>

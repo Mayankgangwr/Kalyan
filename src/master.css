@@ -10,7 +10,16 @@ body {
   margin-top: 3px;
   align-items: center;
 }
-
+.boxs-col {
+  flex: 0 0 auto;
+  width: 88%;
+}
+.master-col1 {
+  flex: 0 0 auto;
+  width: 16.66%;
+  margin-top: 3px;
+  align-items: center;
+}
 .total-col {
   flex: 0 0 auto;
   width: 10%;
