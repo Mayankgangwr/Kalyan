@@ -2,3 +2,11 @@
   font-family: sans-serif;
   text-align: center;
 }
+.btn-link-color {
+  background-color: #000;
+  color: #fff;
+}
+.btn-link-color:hover {
+  background-color: #000;
+  color: #fff;
+}

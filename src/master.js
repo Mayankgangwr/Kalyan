@@ -23,7 +23,6 @@ const Master = () => {
           <i class="fas fa-print"></i>
         </button>
       </div>
-
       <nav
         className="navbar navbar-expand-lg  hide-on-print"
         style={{ backgroundColor: "#ed302f" }}
