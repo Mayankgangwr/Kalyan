@@ -24,7 +24,10 @@ const Master = () => {
         </button>
       </div>
 
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark hide-on-print">
+      <nav
+        className="navbar navbar-expand-lg  hide-on-print"
+        style={{ backgroundColor: "#ed302f" }}
+      >
         <div className="container-fluid">
           <div className="row w-100">
             <div className="col-4">
