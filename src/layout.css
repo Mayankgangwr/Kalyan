@@ -1,0 +1,50 @@
+.d-nav {
+  display: block !important;
+}
+.m-nav {
+  display: none !important;
+}
+.btn-link-color {
+  background-color: #000;
+  color: #fff;
+  border-radius: 15px;
+}
+.btn-link-color:hover {
+  background-color: #000;
+  color: #fff;
+}
+.nav-px {
+}
+@media (min-width: 500px) {
+  .navbar-expand-lg .navbar-collapse {
+    display: flex !important;
+    flex-basis: auto;
+  }
+  .navbar-expand-lg {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+  .navbar {
+    display: flex;
+  }
+}
+@media only screen and (min-width: 300px) and (max-width: 480px) {
+  .d-nav {
+    display: none !important;
+  }
+  .m-nav {
+    display: block !important;
+  }
+  .btn-link-color {
+    padding: 8px;
+  }
+  .nav-px {
+    padding-right: 3px !important;
+    padding-left: 3px !important;
+  }
+}
+@media only screen and (min-width: 350px) and (max-width: 900px) {
+  .btn-link-color {
+    padding: 8px;
+  }
+}
