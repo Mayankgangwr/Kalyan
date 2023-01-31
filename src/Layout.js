@@ -40,7 +40,7 @@ const Layout = () => {
         </div>
       </div>
       <nav
-        className="navbar navbar-expand-lg navbar-dark bg-dark d-nav py-0"
+        className="navbar navbar-expand-lg fixed-top navbar-dark bg-dark d-nav py-0"
         style={{ hieght: "50px" }}
       >
         <div className="container-fluid">
@@ -83,30 +83,22 @@ const Layout = () => {
                 class="nav-link dropdown-toggle hidden-arrow"
                 data-mdb-toggle="dropdown"
               >
-                <button className="text-center btn btn-primary btn-sm">
-                  <img src="./img/logo.png" className="me-1" height="20" />
-                  User Name
+                <button className="btn btn-link-color">
+                  Prince
+                  <i className="fas fa-ellipsis-v ms-1"></i>
                 </button>
               </li>
-              <ul class="dropdown-menu bg-dark dropdown-menu-end mx-2 p-2 shadow-5">
+              <ul class="dropdown-menu dropdown-menu-end mx-2 p-2 shadow-5 bg-dark">
                 <li>
                   <Link
-                    to="login"
+                    to="profile"
                     className="nav-item btn btn-link-color w-100 my-2"
                   >
                     <i class="fas fa-user-alt me-1"></i>
-                    Login
+                    profile
                   </Link>
                 </li>
-                <li>
-                  <Link
-                    to="register"
-                    className="nav-item btn btn-link-color w-100 my-2"
-                  >
-                    <i class="fas fa-user-alt me-1"></i>
-                    Register
-                  </Link>
-                </li>
+
                 <li>
                   <Link
                     to="setting"
