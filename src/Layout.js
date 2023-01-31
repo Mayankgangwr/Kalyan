@@ -3,11 +3,12 @@ import "./layout.css";
 const Layout = () => {
   return (
     <>
-      <div className="container-fluid bg-dark m-nav mx-0 nav-px">
+      <div className="container-fluid fixed-top bg-dark m-nav mx-0 nav-px">
         <div
           className="d-flex justify-content-between"
           style={{ lineHeight: "12px" }}
-        >
+        ></div>
+        <div className="d-flex justify-content-between py-2">
           <Link className="navbar-brand" to="/">
             <img
               src="./img/logo.png"
@@ -17,14 +18,6 @@ const Layout = () => {
               style={{ filter: "hue-rotate(150deg)" }}
             />
           </Link>
-          <Link class="text-center mt-1" to="/profile">
-            <h6 className="card=title mb-0" style={{ color: "#fff" }}>
-              Prince
-            </h6>
-            <p style={{ color: "rgb(166 166 166)" }}>prince@00</p>
-          </Link>
-        </div>
-        <div className="d-flex justify-content-between pb-2">
           <Link className="btn btn-link-color" to="sheets">
             <i class="fas fa-table"></i> Sheets
           </Link>
@@ -34,9 +27,46 @@ const Layout = () => {
           <Link className="btn btn-link-color" to="account">
             <i class="fas fa-users"></i> Account
           </Link>
-          <Link className="btn btn-link-color" to="profile">
-            <i class="fas fa-user-alt"></i> Profile
-          </Link>
+          <li
+            style={{ cursor: "pointer" }}
+            class="nav-link dropdown-toggle hidden-arrow"
+            data-mdb-toggle="dropdown"
+          >
+            <button className="btn btn-link-color">
+              Prince
+              <i className="fas fa-ellipsis-v ms-1"></i>
+            </button>
+          </li>
+          <ul class="dropdown-menu dropdown-menu-end mx-2 p-2 shadow-5 bg-dark">
+            <li>
+              <Link
+                to="profile"
+                className="nav-item btn btn-link-color w-100 my-2"
+              >
+                <i class="fas fa-user-alt me-1"></i>
+                profile
+              </Link>
+            </li>
+
+            <li>
+              <Link
+                to="setting"
+                className="nav-item btn btn-link-color w-100 my-2"
+              >
+                <i class="fas fa-cog me-1"></i>
+                Setting
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="logout"
+                className="nav-item btn btn-link-color w-100 my-2"
+              >
+                <i class="fas fa-sign-in-alt me-1"></i>
+                Logout
+              </Link>
+            </li>
+          </ul>
         </div>
       </div>
       <nav

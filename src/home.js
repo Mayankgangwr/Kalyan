@@ -1,31 +1,45 @@
 import React from "react";
-import Layout from "./Layout";
 const Home = () => {
   return (
     <>
-      <Layout />
-      <div className="container-fluid mx-0" style={{ marginTop: "60px" }}>
+      <div className="container-fluid mx-0  main-page">
         <div className="row">
-          <div className="col-4 col-lg-4 col-md-10 col-sm-10 mt-2">
-            <input
-              type="text"
-              placeholder="Enter the sheet name"
-              class="form-control"
-            />
+          <div className="col-lg-6 col-md-6 col-sm-6 col-12">
+            <div className="row">
+              <div className="col-8">
+                <input
+                  type="text"
+                  placeholder="Enter the sheet name"
+                  class="form-control"
+                />
+              </div>
+              <div className="col-4">
+                <input
+                  type="submit"
+                  value="Create"
+                  class="btn btn-primary w-100"
+                />
+              </div>
+            </div>
           </div>
-          <div className="col-2 col-lg-2 col-md-2 col-sm-2 mt-2">
-            <input type="submit" value="Create" class="btn btn-primary" />
-          </div>
-          <div className="col-4 col-lg-4 col-md-10 col-sm-10 mt-2">
-            <input type="date" class="form-control" />
-          </div>
-          <div className="col-2 col-lg-2 col-md-2 col-sm-2 mt-2">
-            <input type="submit" value="Check" class="btn btn-primary" />
+          <div className="col-lg-6 col-md-6 col-sm-6 col-12">
+            <div className="row">
+              <div className="col-8 mt-lg-0 mt-md-0 mt-sm-0 mt-2">
+                <input type="date" class="form-control" />
+              </div>
+              <div className="col-4 mt-lg-20 mt-md-0 mt-sm-0 mt-2">
+                <input
+                  type="submit"
+                  value="Check"
+                  class="btn btn-primary w-100"
+                />
+              </div>
+            </div>
           </div>
         </div>
         <hr />
         <div className="row">
-          <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12 col-12 mt-1">
+          <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12 col-12 mt-2">
             <div className="card shadow-5">
               <div className="card-header p-2">
                 <div className="d-flex justify-content-between">
@@ -89,7 +103,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12 col-12 mt-1">
+          <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12 col-12 mt-2">
             <div className="card shadow-5">
               <div className="card-header p-2">
                 <div className="d-flex justify-content-between">
@@ -153,7 +167,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12 col-12 mt-1">
+          <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12 col-12 mt-2">
             <div className="card shadow-5">
               <div className="card-header p-2">
                 <div className="d-flex justify-content-between">
@@ -217,7 +231,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12 col-12 mt-1">
+          <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12 col-12 mt-2">
             <div className="card shadow-5">
               <div className="card-header p-2">
                 <div className="d-flex justify-content-between">
@@ -281,7 +295,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12 col-12 mt-1">
+          <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12 col-12 mt-2">
             <div className="card shadow-5">
               <div className="card-header p-2">
                 <div className="d-flex justify-content-between">
@@ -345,7 +359,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12 col-12 mt-1">
+          <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12 col-12 mt-2">
             <div className="card shadow-5">
               <div className="card-header p-2">
                 <div className="d-flex justify-content-between">
@@ -409,7 +423,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12 col-12 mt-1">
+          <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12 col-12 mt-2">
             <div className="card shadow-5">
               <div className="card-header p-2">
                 <div className="d-flex justify-content-between">
@@ -473,7 +487,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12 col-12 mt-1">
+          <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12 col-12 mt-2">
             <div className="card shadow-5">
               <div className="card-header p-2">
                 <div className="d-flex justify-content-between">
@@ -537,7 +551,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12 col-12 mt-1">
+          <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12 col-12 mt-2">
             <div className="card shadow-5">
               <div className="card-header p-2">
                 <div className="d-flex justify-content-between">
@@ -601,7 +615,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12 col-12 mt-1">
+          <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12 col-12 mt-2">
             <div className="card shadow-5">
               <div className="card-header p-2">
                 <div className="d-flex justify-content-between">
@@ -665,7 +679,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12 col-12 mt-1">
+          <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12 col-12 mt-2">
             <div className="card shadow-5">
               <div className="card-header p-2">
                 <div className="d-flex justify-content-between">
@@ -729,7 +743,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12 col-12 mt-1">
+          <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12 col-12 mt-2">
             <div className="card shadow-5">
               <div className="card-header p-2">
                 <div className="d-flex justify-content-between">
@@ -793,7 +807,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12 col-12 mt-1">
+          <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12 col-12 mt-2">
             <div className="card shadow-5">
               <div className="card-header p-2">
                 <div className="d-flex justify-content-between">
@@ -857,7 +871,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12 col-12 mt-1">
+          <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12 col-12 mt-2">
             <div className="card shadow-5">
               <div className="card-header p-2">
                 <div className="d-flex justify-content-between">
@@ -921,7 +935,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12 col-12 mt-1">
+          <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12 col-12 mt-2">
             <div className="card shadow-5">
               <div className="card-header p-2">
                 <div className="d-flex justify-content-between">
@@ -985,7 +999,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12 col-12 mt-1">
+          <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12 col-12 mt-2">
             <div className="card shadow-5">
               <div className="card-header p-2">
                 <div className="d-flex justify-content-between">
@@ -1049,7 +1063,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12 col-12 mt-1">
+          <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12 col-12 mt-2">
             <div className="card shadow-5">
               <div className="card-header p-2">
                 <div className="d-flex justify-content-between">
