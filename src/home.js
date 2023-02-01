@@ -7,11 +7,12 @@ const Home = () => {
           <div className="col-lg-6 col-md-6 col-sm-6 col-12">
             <div className="row">
               <div className="col-8">
-                <input
-                  type="text"
-                  placeholder="Enter the sheet name"
-                  class="form-control"
-                />
+                <select className="form-select">
+                  <option value="FD">FD</option>
+                  <option value="FD">FD</option>
+                  <option value="FD">FD</option>
+                  <option value="FD">FD</option>
+                </select>
               </div>
               <div className="col-4">
                 <input
@@ -24,8 +25,31 @@ const Home = () => {
           </div>
           <div className="col-lg-6 col-md-6 col-sm-6 col-12">
             <div className="row">
-              <div className="col-8 mt-lg-0 mt-md-0 mt-sm-0 mt-2">
-                <input type="date" class="form-control" />
+              <div className="col-4 mt-lg-0 mt-md-0 mt-sm-0 mt-2">
+                <select className="form-select">
+                  <option value="01">Jan</option>
+                  <option value="02">Fab</option>
+                  <option value="03">Mar</option>
+                  <option value="04">Apr</option>
+                  <option value="05">May</option>
+                  <option value="06">Jun</option>
+                  <option value="07">Jul</option>
+                  <option value="08">Aug</option>
+                  <option value="09">Sep</option>
+                  <option value="10">Oct</option>
+                  <option value="11">Nov</option>
+                  <option value="12">Dec</option>
+                </select>
+              </div>
+              <div className="col-4 mt-lg-0 mt-md-0 mt-sm-0 mt-2">
+                <select className="form-select">
+                  <option value="2023">2023</option>
+                  <option value="2022">2022</option>
+                  <option value="2021">2021</option>
+                  <option value="2019">2019</option>
+                  <option value="2018">2018</option>
+                  <option value="2017">2017</option>
+                </select>
               </div>
               <div className="col-4 mt-lg-20 mt-md-0 mt-sm-0 mt-2">
                 <input
