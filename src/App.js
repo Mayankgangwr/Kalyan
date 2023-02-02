@@ -6,6 +6,7 @@ import Master from "./master";
 import Sheets from "./sheets";
 import Clients from "./clients";
 import axios from "axios";
+import Epanel from "./epanel";
 import "./styles.css";
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
           <Route path="/sheets" element={<Sheets />} />
           <Route path="/clients" element={<Clients />} />
         </Route>
+        <Route path="/epanel" element={<Epanel />} />
         <Route path="/master" element={<Master />} />
       </Routes>
     </BrowserRouter>

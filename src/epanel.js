@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./master.css";
-import Sp from "./sp";
-import Dp from "./dp";
-import SingleClose from "./singleclose";
-import Tp from "./tp";
-import JodePanel from "./jodepanel";
+import SpPanel from "./EpanelOpen/spepanel";
+import DpPanel from "./EpanelOpen/dpepanel";
+import SingleClose from "./EpanelOpen/singleclose";
+import TpPanel from "./EpanelOpen/tpepanel";
+import JodePanel from "./EpanelOpen/jodepanel";
 import Draggable from "react-draggable";
 
-const Master = () => {
+const Epanel = () => {
   const printReceipt = () => {
     window.print();
     //alert("printed");
@@ -30,10 +30,10 @@ const Master = () => {
         <div className="container-fluid">
           <div className="row w-100">
             <div className="col-4">
-              <h6 className="card-title text-center">Master</h6>
+              <h6 className="card-title text-center">E-Panel</h6>
             </div>
             <div className="col-4">
-              <h6 className="card-title text-center">Milan Night</h6>
+              <h6 className="card-title text-center">FD Open</h6>
             </div>
             <div className="col-4">
               <h6 className="card-title text-center">22/01/2023</h6>
@@ -46,17 +46,17 @@ const Master = () => {
           {/*Ps Panel Start*/}
           <div className="col-lg-4 col-md-4 col-12 height-on-print mx-0 px-0">
             <h6 className="card-title text-center bg-info pt-1">SP Panel</h6>
-            <Sp />
+            <SpPanel />
           </div>
           {/* Ps Panel Close */}
           {/*Dp Panel Start*/}
           <div className="col-lg-4 col-md-4 col-12 mt-lg-0 mt-md-0 mt-2 height-on-print mx-0 px-0">
             <h6 className="card-title text-center bg-info pt-1">DP Panel</h6>
-            <Dp />
+            <DpPanel />
             <h6 className="card-title text-center  bg-info pt-1 mt-2">
               TP Panel
             </h6>
-            <Tp />
+            <TpPanel />
           </div>
           {/* Dp Panel Close */}
           {/*Dp Panel Start*/}
@@ -76,4 +76,4 @@ const Master = () => {
   );
 };
 
-export default Master;
+export default Epanel;
