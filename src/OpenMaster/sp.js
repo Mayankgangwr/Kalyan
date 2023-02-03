@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import Spdata from "./spdata";
+import Spdata from "../spdata";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 const Sp = () => {
+  const [spdata, setSpdata] = useState(Spdata);
   const [operation, setOperation] = useState({
     cutting: "",
     less: "",

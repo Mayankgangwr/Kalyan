@@ -95,8 +95,8 @@ const Home = () => {
                   style={{ backgroundColor: "#FDF" }}
                 >
                   <div className="d-flex justify-content-between mt-2 mb-1">
-                    <div className="btn-primary">
-                      <small>Open</small>
+                    <div className="">
+                      <h4>Open</h4>
                     </div>
                     <button className="btn btn-sm btn-primary rounded-pill">
                       <small>Declare</small>
@@ -120,8 +120,8 @@ const Home = () => {
                   style={{ backgroundColor: "rgb(206 194 206)" }}
                 >
                   <div className="d-flex justify-content-between mt-2 mb-1">
-                    <div className="btn-primary">
-                      <small>Close</small>
+                    <div className="">
+                      <h4>Close</h4>
                     </div>
                     <button className="btn btn-sm btn-primary rounded-pill">
                       <small>Declare</small>

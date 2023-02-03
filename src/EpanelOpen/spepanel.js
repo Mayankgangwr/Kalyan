@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Spdata from "./spdata";
+import Spdata from "../spdata";
 const SpPanel = () => {
   const [spdata, setSpdata] = useState(Spdata);
   const handleChange = (e) => {

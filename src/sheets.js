@@ -31,7 +31,6 @@ const Sheets = () => {
                       <h5 className="card-title mb-0">FD</h5>
                       <small className="text-muted">2023-01-29</small>
                     </div>
-
                     <div className="d-flex justify-content-between">
                       <button className="btn text-white btn-lg btn-floating btn-parple me-1">
                         <i class="fas fa-edit"></i>

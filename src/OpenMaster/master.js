@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import "./master.css";
-import Sp from "../sp";
-import Dp from "../dp";
-import SingleClose from "../singleclose";
-import Tp from "../tp";
-import JodePanel from "../jodepanel";
+import "../master.css";
+import Sp from "./sp";
+import Dp from "./dp";
+import SingleClose from "./singleclose";
+import Tp from "./tp";
+import JodePanel from "./jodepanel";
 import Draggable from "react-draggable";
 
 const Master = () => {
