@@ -12,12 +12,12 @@ const CloseEpanel = () => {
   const [amount, setAmount] = useState("");
   const handleBoxno = (e) => {
     const value = e.target.value;
-    console.log(value);
+    
+    if (value.length) 
     setBoxno(value);
   };
   const handleAmmount = (e) => {
     const value = e.target.value;
-    if(value.length)
     setAmount(value);
   };
   const printReceipt = () => {
