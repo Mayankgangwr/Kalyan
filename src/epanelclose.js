@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import "./master.css";
 import { Link } from "react-router-dom";
 import SpPanel from "./CloseEpanel/spepanel";
@@ -6,23 +6,46 @@ import DpPanel from "./CloseEpanel/dpepanel";
 import SingleClose from "./CloseEpanel/singleclose";
 import TpPanel from "./CloseEpanel/tpepanel";
 import JodePanel from "./CloseEpanel/jodepanel";
+import { useSelector, useDispatch } from "react-redux";
+import { AddSp } from "./action/index";
 
 const CloseEpanel = () => {
+  const spdata = useSelector((state) => state.SpData);
+  const dispatch = useDispatch();
   const [boxno, setBoxno] = useState("");
   const [amount, setAmount] = useState("");
+  const [pane, setPane] = useState("panel");
+  const [newdata, setNewdata] = useState(spdata);
   const handleBoxno = (e) => {
     const value = e.target.value;
-    
-    if (value.length) 
     setBoxno(value);
   };
   const handleAmmount = (e) => {
     const value = e.target.value;
     setAmount(value);
   };
+  const handlePanel = (e) => {
+    setPane(e.target.value);
+  };
   const printReceipt = () => {
     window.print();
     //alert("printed");
+  };
+  const AddData = (e) => {
+    e.preventDefault();
+    if (pane == "panel" && boxno.length % 3 === 0 && amount !== 0) {
+      for (let i = 0; i < boxno.length / 3; i++) {
+        setNewdata(
+          newdata.map((obj, i) => {
+            if (obj.key == boxno.slice(i * 3, i * 3 + 3)) {
+              return { ...obj, num: JSON.parse(obj.num) + JSON.parse(amount) };
+            }
+            return obj;
+          })
+        );
+        dispatch(AddSp(newdata));
+      }
+    }
   };
   return (
     <>
@@ -76,19 +99,33 @@ const CloseEpanel = () => {
             <div className="row box-row mt-2">
               <div className="col-3 px-1 mt-2">
                 <label>
-                  <input type="radio" name="panel" className="me-1" />
+                  <input
+                    type="radio"
+                    value="panel"
+                    checked={pane === "panel"}
+                    onChange={handlePanel}
+                    name="panel"
+                    className="me-1"
+                  />
                   Panel
                 </label>
               </div>
               <div className="col-3 px-1 mt-2">
                 <label>
-                  <input type="radio" name="panel" className="me-1" />
+                  <input
+                    type="radio"
+                    value="single"
+                    checked={pane === "single"}
+                    onChange={handlePanel}
+                    name="panel"
+                    className="me-1"
+                  />
                   Single
                 </label>
               </div>
               <div className="col-7 px-1 mt-2">
                 <input
-                  type="text"
+                  type="number"
                   name="boxno"
                   onChange={handleBoxno}
                   value={boxno}
@@ -118,6 +155,7 @@ const CloseEpanel = () => {
                 }}
               >
                 <img
+                  onClick={AddData}
                   src="./img/arrow.png"
                   style={{ height: "24px", marginLeft: "-3px" }}
                 />

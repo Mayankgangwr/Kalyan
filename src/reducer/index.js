@@ -1,7 +1,8 @@
-import OrderData from "./orderdata";
+import SpData from "./spdata";
+
 import { combineReducers } from "redux";
 
 const rootReducer = combineReducers({
-  OrderData,
+  SpData,
 });
 export default rootReducer;

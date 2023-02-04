@@ -1,7 +1,11 @@
-import React, { useState } from "react";
-import Spdata from "../spdata";
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 const SpPanel = () => {
+  const Spdata = useSelector((state) => state.SpData);
   const [spdata, setSpdata] = useState(Spdata);
+  useEffect(() => {
+    setSpdata(Spdata);
+  });
   const handleChange = (e) => {
     e.preventDefault();
     const name = e.target.name;

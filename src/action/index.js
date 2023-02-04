@@ -1,6 +1,12 @@
-export const ReadOrder = (data) => {
+export const ReadSp = (data) => {
   return {
-    type: "ReadOrder",
+    type: "ReadSp",
+    payload: data,
+  };
+};
+export const AddSp = (data) => {
+  return {
+    type: "AddSp",
     payload: data,
   };
 };
