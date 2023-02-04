@@ -1,42 +1,42 @@
-const Tpdata = [
+const Single = [
   {
-    key: "111",
+    key: "1",
     num: 1000,
   },
   {
-    key: "222",
+    key: "2",
     num: 1000,
   },
   {
-    key: "333",
+    key: "3",
     num: 1000,
   },
   {
-    key: "444",
+    key: "4",
     num: 1000,
   },
   {
-    key: "555",
+    key: "5",
     num: 1000,
   },
   {
-    key: "666",
+    key: "6",
     num: 1000,
   },
   {
-    key: "777",
+    key: "7",
     num: 1000,
   },
   {
-    key: "888",
+    key: "8",
     num: 1000,
   },
   {
-    key: "999",
+    key: "9",
     num: 1000,
   },
   {
-    key: "000",
+    key: "0",
     num: 1000,
   },
   {
@@ -48,4 +48,4 @@ const Tpdata = [
     num: 0,
   },
 ];
-export default Tpdata;
+export default Single;

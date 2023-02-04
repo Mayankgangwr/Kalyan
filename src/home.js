@@ -101,18 +101,16 @@ const Home = () => {
                     <button className="btn btn-sm btn-primary rounded-pill">
                       <small>Declare</small>
                     </button>
-                    <Link
-                      to="/master"
-                      className="btn btn-sm btn-primary rounded-pill"
-                    >
-                      <small>Master</small>
-                    </Link>
-                    <Link
-                      to="/epanel"
-                      className="btn btn-sm btn-primary rounded-pill"
-                    >
-                      <small>E-Panel</small>
-                    </Link>
+                    <button className="btn btn-sm btn-primary rounded-pill">
+                      <Link className="text-light" to="openmaster">
+                        <small>Master</small>
+                      </Link>
+                    </button>
+                    <button className="btn btn-sm btn-primary rounded-pill">
+                      <Link className="text-light" to="openepanel">
+                        <small>E-Panel</small>
+                      </Link>
+                    </button>
                   </div>
                 </div>
                 <div
@@ -126,18 +124,16 @@ const Home = () => {
                     <button className="btn btn-sm btn-primary rounded-pill">
                       <small>Declare</small>
                     </button>
-                    <Link
-                      to="/master"
-                      className="btn btn-sm btn-primary rounded-pill"
-                    >
-                      <small>Master</small>
-                    </Link>
-                    <Link
-                      to="/epanel"
-                      className="btn btn-sm btn-primary rounded-pill"
-                    >
-                      <small>E-Panel</small>
-                    </Link>
+                    <button className="btn btn-sm btn-primary rounded-pill">
+                      <Link className="text-light" to="closemaster">
+                        <small>Master</small>
+                      </Link>
+                    </button>
+                    <button className="btn btn-sm btn-primary rounded-pill">
+                      <Link className="text-light" to="closeepanel">
+                        <small>E-Panel</small>
+                      </Link>
+                    </button>
                   </div>
                 </div>
               </div>

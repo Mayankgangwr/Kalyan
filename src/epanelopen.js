@@ -7,7 +7,7 @@ import SingleClose from "./EpanelOpen/singleclose";
 import TpPanel from "./EpanelOpen/tpepanel";
 import JodePanel from "./EpanelOpen/jodepanel";
 
-const Epanel = () => {
+const OpenEpanel = () => {
   const printReceipt = () => {
     window.print();
     //alert("printed");
@@ -68,19 +68,19 @@ const Epanel = () => {
             <div className="row box-row mt-2">
               <div className="col-2 px-1 mt-2">
                 <label>
-                  <input type="checkbox" className="me-1" />
+                  <input type="radio" name="panel" className="me-1" />
                   Panel
                 </label>
               </div>
               <div className="col-2 px-1 mt-2">
                 <label>
-                  <input type="checkbox" className="me-1" />
+                  <input type="radio" name="panel" className="me-1" />
                   Single
                 </label>
               </div>
               <div className="col-2 px-1 mt-2">
                 <label>
-                  <input type="checkbox" className="me-1" />
+                  <input type="radio" name="panel" className="me-1" />
                   Jode
                 </label>
               </div>
@@ -144,4 +144,4 @@ const Epanel = () => {
   );
 };
 
-export default Epanel;
+export default OpenEpanel;
