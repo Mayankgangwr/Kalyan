@@ -1,7 +1,11 @@
-import React, { useState } from "react";
-import Single from "./single";
-const TpPanel = () => {
-  const [singledata, setSingledata] = useState(Single);
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+const SingleClose = () => {
+  const Singledata = useSelector((state) => state.SingleData);
+  const [singledata, setSingledata] = useState(Singledata);
+  useEffect(() => {
+    setSingledata(Singledata);
+  });
   const handleChange = (e) => {
     e.preventDefault();
     const name = e.target.name;
@@ -32,7 +36,7 @@ const TpPanel = () => {
               <input
                 type="text"
                 name={item.key}
-                value={item.num}
+                value={item.num < 1 ? "" : item.num}
                 onChange={handleChange}
                 className="form-control amount-box"
               />
@@ -74,4 +78,4 @@ const TpPanel = () => {
     </>
   );
 };
-export default TpPanel;
+export default SingleClose;

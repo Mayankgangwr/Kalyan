@@ -6,12 +6,13 @@ import DpPanel from "./CloseEpanel/dpepanel";
 import SingleClose from "./CloseEpanel/singleclose";
 import TpPanel from "./CloseEpanel/tpepanel";
 import { useSelector, useDispatch } from "react-redux";
-import { AddSp, AddDp, AddTp } from "./action/index";
+import { AddSp, AddDp, AddTp, AddSingle } from "./action/index";
 
 const CloseEpanel = () => {
   const spdata = useSelector((state) => state.SpData);
   const tpdata = useSelector((state) => state.TpData);
   const dpdata = useSelector((state) => state.DpData);
+  const Singledata = useSelector((state) => state.SingleData);
   const dispatch = useDispatch();
   const [boxno, setBoxno] = useState("");
   const [amount, setAmount] = useState("");
@@ -19,6 +20,7 @@ const CloseEpanel = () => {
   const [newspdata, setNewspdata] = useState(spdata);
   const [newdpdata, setNewdpdata] = useState(dpdata);
   const [newtpdata, setNewtpdata] = useState(tpdata);
+  const [newsingledata, setNewsingledata] = useState(Singledata);
   const handleBoxno = (e) => {
     const value = e.target.value;
     setBoxno(value);
@@ -36,7 +38,7 @@ const CloseEpanel = () => {
   };
   const AddData = (e) => {
     e.preventDefault();
-    if (pane == "panel" && boxno.length % 3 === 0 && amount !== 0) {
+    if (pane === "panel" && boxno.length % 3 === 0 && amount !== 0) {
       for (let i = 0; i < boxno.length / 3; i++) {
         setNewspdata(
           newspdata.map((obj, i) => {
@@ -56,6 +58,28 @@ const CloseEpanel = () => {
           })
         );
         dispatch(AddDp(newdpdata));
+        setNewtpdata(
+          newtpdata.map((obj, i) => {
+            if (obj.key == boxno.slice(i * 3, i * 3 + 3)) {
+              return { ...obj, num: JSON.parse(obj.num) + JSON.parse(amount) };
+            }
+            return obj;
+          })
+        );
+        dispatch(AddTp(newtpdata));
+      }
+    }
+    if (pane === "single" && boxno.length % 1 === 0 && amount !== 0) {
+      for (let i = 0; i < boxno.length; i++) {
+        setNewsingledata(
+          newsingledata.map((obj, i) => {
+            if (obj.key == boxno[i]) {
+              return { ...obj, num: JSON.parse(obj.num) + JSON.parse(amount) };
+            }
+            return obj;
+          })
+        );
+        dispatch(AddSingle(newsingledata));
       }
     }
   };

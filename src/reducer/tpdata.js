@@ -9,6 +9,8 @@ var initialState = [
   { key: "888", num: 0 },
   { key: "999", num: 0 },
   { key: "000", num: 0 },
+  { key: "na", num: 0 },
+  { key: "no", num: 0 },
 ];
 const TpData = (state = initialState, action) => {
   if (action.type == "AddTp") {

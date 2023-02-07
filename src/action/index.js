@@ -22,3 +22,9 @@ export const AddTp = (data) => {
     payload: data,
   };
 };
+export const AddSingle = (data) => {
+  return {
+    type: "AddSingle",
+    payload: data,
+  };
+};
