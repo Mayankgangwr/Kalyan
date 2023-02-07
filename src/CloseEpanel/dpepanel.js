@@ -1,7 +1,11 @@
-import React, { useState } from "react";
-import Dpdata from "./dpdata";
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 const DpPanel = () => {
+  const Dpdata = useSelector((state) => state.DpData);
   const [dpdata, setDpdata] = useState(Dpdata);
+  useEffect(() => {
+    setDpdata(Dpdata);
+  });
   const handleChange = (e) => {
     e.preventDefault();
     const name = e.target.name;
@@ -32,7 +36,7 @@ const DpPanel = () => {
               <input
                 type="text"
                 name={item.key}
-                value={item.num}
+                value={item.num < 1 ? "" : item.num}
                 onChange={handleChange}
                 className="form-control amount-box"
               />

@@ -5,17 +5,20 @@ import SpPanel from "./CloseEpanel/spepanel";
 import DpPanel from "./CloseEpanel/dpepanel";
 import SingleClose from "./CloseEpanel/singleclose";
 import TpPanel from "./CloseEpanel/tpepanel";
-import JodePanel from "./CloseEpanel/jodepanel";
 import { useSelector, useDispatch } from "react-redux";
-import { AddSp } from "./action/index";
+import { AddSp, AddDp, AddTp } from "./action/index";
 
 const CloseEpanel = () => {
   const spdata = useSelector((state) => state.SpData);
+  const tpdata = useSelector((state) => state.TpData);
+  const dpdata = useSelector((state) => state.DpData);
   const dispatch = useDispatch();
   const [boxno, setBoxno] = useState("");
   const [amount, setAmount] = useState("");
   const [pane, setPane] = useState("panel");
-  const [newdata, setNewdata] = useState(spdata);
+  const [newspdata, setNewspdata] = useState(spdata);
+  const [newdpdata, setNewdpdata] = useState(dpdata);
+  const [newtpdata, setNewtpdata] = useState(tpdata);
   const handleBoxno = (e) => {
     const value = e.target.value;
     setBoxno(value);
@@ -35,15 +38,24 @@ const CloseEpanel = () => {
     e.preventDefault();
     if (pane == "panel" && boxno.length % 3 === 0 && amount !== 0) {
       for (let i = 0; i < boxno.length / 3; i++) {
-        setNewdata(
-          newdata.map((obj, i) => {
+        setNewspdata(
+          newspdata.map((obj, i) => {
             if (obj.key == boxno.slice(i * 3, i * 3 + 3)) {
               return { ...obj, num: JSON.parse(obj.num) + JSON.parse(amount) };
             }
             return obj;
           })
         );
-        dispatch(AddSp(newdata));
+        dispatch(AddSp(newspdata));
+        setNewdpdata(
+          newdpdata.map((obj, i) => {
+            if (obj.key == boxno.slice(i * 3, i * 3 + 3)) {
+              return { ...obj, num: JSON.parse(obj.num) + JSON.parse(amount) };
+            }
+            return obj;
+          })
+        );
+        dispatch(AddDp(newdpdata));
       }
     }
   };

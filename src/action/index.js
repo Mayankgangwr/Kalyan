@@ -10,3 +10,15 @@ export const AddSp = (data) => {
     payload: data,
   };
 };
+export const AddDp = (data) => {
+  return {
+    type: "AddDp",
+    payload: data,
+  };
+};
+export const AddTp = (data) => {
+  return {
+    type: "AddTp",
+    payload: data,
+  };
+};

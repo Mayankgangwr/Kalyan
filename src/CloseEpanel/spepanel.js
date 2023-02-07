@@ -38,7 +38,7 @@ const SpPanel = () => {
               <input
                 type="text"
                 name={item.key}
-                value={item.num}
+                value={item.num < 1 ? "" : item.num}
                 onChange={handleChange}
                 className="form-control amount-box"
               />
