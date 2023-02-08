@@ -38,7 +38,6 @@ const CloseEpanel = () => {
     //alert("printed");
   };
 
-  let newsingledatas = Singledata;
   const AddData = (e) => {
     e.preventDefault();
     if (pane === "panel" && boxno.length % 3 === 0 && amount !== 0) {
@@ -74,12 +73,15 @@ const CloseEpanel = () => {
     }
     if (pane === "single" && boxno.length % 1 === 0 && amount !== 0) {
       for (let i = 0; i < boxno.length; i++) {
-        //setNewsingledata([...newsingledata,{}])
-        const index = newsingledata.findIndex((obj) => {
-          return obj.key == boxno[i];
-        });
-        newsingledata[index].num =
-          JSON.parse(newsingledata[index].num) + JSON.parse(amount);
+        setNewsingledata(
+          newsingledata.map((obj, i) => {
+            if (obj.key == boxno.slice(i, i + 1)) {
+              return { ...obj, num: JSON.parse(obj.num) + JSON.parse(amount) };
+            }
+            return obj;
+          })
+        );
+        dispatch(AddSingle(newsingledata));
       }
     }
   };
