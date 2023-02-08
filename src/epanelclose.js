@@ -21,6 +21,7 @@ const CloseEpanel = () => {
   const [newdpdata, setNewdpdata] = useState(dpdata);
   const [newtpdata, setNewtpdata] = useState(tpdata);
   const [newsingledata, setNewsingledata] = useState(Singledata);
+
   const handleBoxno = (e) => {
     const value = e.target.value;
     setBoxno(value);
@@ -36,13 +37,14 @@ const CloseEpanel = () => {
     window.print();
     //alert("printed");
   };
+
+  let newsingledatas = Singledata;
   const AddData = (e) => {
     e.preventDefault();
     if (pane === "panel" && boxno.length % 3 === 0 && amount !== 0) {
       for (let i = 0; i < boxno.length / 3; i++) {
         setNewspdata(
           newspdata.map((obj, i) => {
-            console.log(boxno.slice(i * 3, i * 3 + 3));
             if (obj.key === boxno.slice(i * 3, i * 3 + 3)) {
               return { ...obj, num: JSON.parse(obj.num) + JSON.parse(amount) };
             }
@@ -72,16 +74,15 @@ const CloseEpanel = () => {
     }
     if (pane === "single" && boxno.length % 1 === 0 && amount !== 0) {
       for (let i = 0; i < boxno.length; i++) {
-        setNewsingledata(
-          newsingledata.map((obj, i) => {
-            if (obj.key == boxno[i]) {
-              return { ...obj, num: JSON.parse(obj.num) + JSON.parse(amount) };
-            }
-            return obj;
-          })
-        );
-        dispatch(AddSingle(newsingledata));
+        const index = newsingledatas.findIndex((obj) => {
+          return obj.key == boxno[i];
+        });
+        newsingledatas[index].num =
+          JSON.parse(newsingledatas[index].num) + JSON.parse(amount);
+        setNewsingledata(newsingledatas);
       }
+      console.log(newsingledatas);
+      dispatch(AddSingle(newsingledatas));
     }
   };
   return (

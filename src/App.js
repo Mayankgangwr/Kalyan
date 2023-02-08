@@ -14,8 +14,6 @@ import { ReadOrder } from "./action/index";
 import "./styles.css";
 
 const App = () => {
-  const Orderdata = useSelector((state) => state.OrderData);
-  console.log(Orderdata);
   return (
     <BrowserRouter>
       <Routes>
