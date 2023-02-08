@@ -74,17 +74,16 @@ const CloseEpanel = () => {
     }
     if (pane === "single" && boxno.length % 1 === 0 && amount !== 0) {
       for (let i = 0; i < boxno.length; i++) {
-        const index = newsingledatas.findIndex((obj) => {
+        //setNewsingledata([...newsingledata,{}])
+        const index = newsingledata.findIndex((obj) => {
           return obj.key == boxno[i];
         });
-        newsingledatas[index].num =
-          JSON.parse(newsingledatas[index].num) + JSON.parse(amount);
-        setNewsingledata(newsingledatas);
+        newsingledata[index].num =
+          JSON.parse(newsingledata[index].num) + JSON.parse(amount);
       }
-      console.log(newsingledatas);
-      dispatch(AddSingle(newsingledatas));
     }
   };
+
   return (
     <>
       <nav
