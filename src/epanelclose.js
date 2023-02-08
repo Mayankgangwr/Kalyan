@@ -40,9 +40,9 @@ const CloseEpanel = () => {
     e.preventDefault();
     if (pane === "panel" && boxno.length % 3 === 0 && amount !== 0) {
       for (let i = 0; i < boxno.length / 3; i++) {
-        console.log(boxno.slice(i * 3, i * 3 + 3));
         setNewspdata(
           newspdata.map((obj, i) => {
+            console.log(boxno.slice(i * 3, i * 3 + 3));
             if (obj.key === boxno.slice(i * 3, i * 3 + 3)) {
               return { ...obj, num: JSON.parse(obj.num) + JSON.parse(amount) };
             }
