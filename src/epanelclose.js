@@ -95,11 +95,11 @@ const CloseEpanel = () => {
           //dispatch(AddSingle(newsingledata));
         }
       }
+      setAmount("");
+      setBoxno("");
     } else {
       alert("No Client Selected");
     }
-    setAmount("");
-    setBoxno("");
   };
 
   return (
