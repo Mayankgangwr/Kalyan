@@ -1,7 +1,13 @@
-import React, { useState } from "react";
-import Spdata from "../spdata";
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+
 const SpPanel = () => {
+  const dispatch = useDispatch();
+  const Spdata = useSelector((state) => state.OpenSpData);
   const [spdata, setSpdata] = useState(Spdata);
+  useEffect(() => {
+    setSpdata(Spdata);
+  });
   const handleChange = (e) => {
     e.preventDefault();
     const name = e.target.name;
@@ -34,7 +40,7 @@ const SpPanel = () => {
               <input
                 type="text"
                 name={item.key}
-                value={item.num}
+                value={item.num < 1 ? "" : item.num}
                 onChange={handleChange}
                 className="form-control amount-box"
               />

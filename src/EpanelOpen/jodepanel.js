@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import Jodedata from "./jodedata";
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 const JodePanel = () => {
+  const Jodedata = useSelector((state) => state.JodeData);
   const [jodedata, setJodedata] = useState(Jodedata);
   const handleChange = (e) => {
     e.preventDefault();
@@ -32,7 +33,7 @@ const JodePanel = () => {
               <input
                 type="text"
                 name={item.key}
-                value={item.num}
+                value={item.num < 1 ? "" : item.num}
                 onChange={handleChange}
                 className="form-control amount-box"
               />
