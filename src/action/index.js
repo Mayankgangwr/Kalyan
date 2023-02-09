@@ -1,6 +1,6 @@
-export const ReadSp = (data) => {
+export const AddJode = (data) => {
   return {
-    type: "ReadSp",
+    type: "AddJode",
     payload: data,
   };
 };
@@ -25,6 +25,30 @@ export const AddTp = (data) => {
 export const AddSingle = (data) => {
   return {
     type: "AddSingle",
+    payload: data,
+  };
+};
+export const AddOpenSp = (data) => {
+  return {
+    type: "AddOpenSp",
+    payload: data,
+  };
+};
+export const AddOpenDp = (data) => {
+  return {
+    type: "AddOpenDp",
+    payload: data,
+  };
+};
+export const AddOpenTp = (data) => {
+  return {
+    type: "AddOpenTp",
+    payload: data,
+  };
+};
+export const AddOpenSingle = (data) => {
+  return {
+    type: "AddOpenSingle",
     payload: data,
   };
 };
