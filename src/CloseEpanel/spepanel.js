@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+
 const SpPanel = () => {
+  const dispatch = useDispatch();
   const Spdata = useSelector((state) => state.SpData);
   const [spdata, setSpdata] = useState(Spdata);
   useEffect(() => {

@@ -17,6 +17,8 @@ const CloseEpanel = () => {
   const [boxno, setBoxno] = useState("");
   const [amount, setAmount] = useState("");
   const [pane, setPane] = useState("panel");
+  const [client, setClient] = useState("");
+  const [disabled, setDisabled] = useState("");
   const [newspdata, setNewspdata] = useState(spdata);
   const [newdpdata, setNewdpdata] = useState(dpdata);
   const [newtpdata, setNewtpdata] = useState(tpdata);
@@ -33,60 +35,71 @@ const CloseEpanel = () => {
   const handlePanel = (e) => {
     setPane(e.target.value);
   };
+  const handleClient = (e) => {
+    setClient(e.target.value);
+    if (e.target.value !== "") {
+      setDisabled("disabled");
+    }
+  };
+  const Enable = () => {
+    setDisabled("");
+  };
   const printReceipt = () => {
     window.print();
     //alert("printed");
   };
   const [newdata, setNewdata] = useState(spdata);
   const AddData = (e) => {
-    e.preventDefault();
-    if (pane === "panel" && boxno.length % 3 === 0 && amount !== 0) {
-      const newobj = newdata.map((obj, index) => {
+    // e.preventDefault();
+    if (client !== "") {
+      if (pane === "panel" && boxno.length % 3 === 0 && amount !== 0) {
         for (let i = 0; i < boxno.length / 3; i++) {
-          if (obj.key == boxno.slice(i * 3, i * 3 + 3)) {
-            console.log(boxno.slice(i * 3, i * 3 + 3));
-            return {
-              ...obj,
-              num: JSON.parse(obj.num) + JSON.parse(amount),
-            };
-          }
-          return obj;
-        }
-      });
-      setNewdata(newobj);
-      dispatch(AddSp(newobj));
-      /* setNewdpdata(
+          newspdata.map((obj, index) => {
+            if (obj.key == boxno.slice(i * 3, i * 3 + 3)) {
+              return (newspdata[index].num =
+                JSON.parse(newspdata[index].num) + JSON.parse(amount));
+            }
+            return obj;
+          });
+          setNewspdata(newspdata);
           newdpdata.map((obj, index) => {
             if (obj.key == boxno.slice(i * 3, i * 3 + 3)) {
-              return { ...obj, num: JSON.parse(obj.num) + JSON.parse(amount) };
+              return (newdpdata[index].num =
+                JSON.parse(newdpdata[index].num) + JSON.parse(amount));
             }
             return obj;
-          })
-        );
-        dispatch(AddDp(newdpdata));
-        setNewtpdata(
+          });
+          setNewdpdata(newdpdata);
+          //dispatch(AddDp(newdpdata));
           newtpdata.map((obj, index) => {
             if (obj.key == boxno.slice(i * 3, i * 3 + 3)) {
-              return { ...obj, num: JSON.parse(obj.num) + JSON.parse(amount) };
+              return (newtpdata[index].num =
+                JSON.parse(newtpdata[index].num) + JSON.parse(amount));
             }
             return obj;
-          })
-        );
-        dispatch(AddTp(newtpdata));*/
-    }
-    if (pane === "single" && boxno.length % 1 === 0 && amount !== 0) {
-      for (let i = 0; i < boxno.length; i++) {
-        setNewsingledata(
+          });
+          setNewtpdata(newtpdata);
+          //dispatch(AddTp(newtpdata));
+        }
+      }
+      if (pane === "single" && boxno.length % 1 === 0 && amount !== 0) {
+        for (let i = 0; i < boxno.length; i++) {
           newsingledata.map((obj, index) => {
             if (obj.key == boxno.slice(i, i + 1)) {
-              return { ...obj, num: JSON.parse(obj.num) + JSON.parse(amount) };
+              return (newsingledata[index].num =
+                JSON.parse(newsingledata[index].num) + JSON.parse(amount));
             }
             return obj;
-          })
-        );
-        dispatch(AddSingle(newsingledata));
+          });
+          setNewsingledata(newsingledata);
+          //dispatch(AddSingle(newsingledata));
+        }
       }
+    } else {
+      alert("No Client Selected");
     }
+    setAmount("");
+    setBoxno("");
   };
 
   return (
@@ -203,20 +216,27 @@ const CloseEpanel = () => {
                 />
               </div>
               <div className="col-8 px-1 mt-2">
-                <select name="client" className="form-select select-box">
+                <select
+                  name="client"
+                  onChange={handleClient}
+                  className="form-select select-box"
+                  disabled={disabled}
+                >
+                  <option value="">Select Client</option>
                   <option value="Prince Kurmi">Prince Kurmi</option>
                   <option value="Mayank Gangwar">Mayank Gangwar</option>
                 </select>
               </div>
               <div className="col-4 px-1 mt-2">
-                <Link
+                <button
                   to="../master"
                   type="submit"
-                  className="btn btn-primary w-100"
+                  onClick={Enable}
+                  className="btn btn-primary"
                   style={{ borderRadius: "10px" }}
                 >
-                  Master
-                </Link>
+                  Clear
+                </button>
               </div>
             </div>
           </div>
