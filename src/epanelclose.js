@@ -37,22 +37,26 @@ const CloseEpanel = () => {
     window.print();
     //alert("printed");
   };
-
+  const [newdata, setNewdata] = useState(spdata);
   const AddData = (e) => {
     e.preventDefault();
     if (pane === "panel" && boxno.length % 3 === 0 && amount !== 0) {
-      for (let i = 0; i < boxno.length / 3; i++) {
-        setNewspdata(
-          newspdata.map((obj, i) => {
-            if (obj.key === boxno.slice(i * 3, i * 3 + 3)) {
-              return { ...obj, num: JSON.parse(obj.num) + JSON.parse(amount) };
-            }
-            return obj;
-          })
-        );
-        dispatch(AddSp(newspdata));
-        setNewdpdata(
-          newdpdata.map((obj, i) => {
+      const newobj = newdata.map((obj, index) => {
+        for (let i = 0; i < boxno.length / 3; i++) {
+          if (obj.key == boxno.slice(i * 3, i * 3 + 3)) {
+            console.log(boxno.slice(i * 3, i * 3 + 3));
+            return {
+              ...obj,
+              num: JSON.parse(obj.num) + JSON.parse(amount),
+            };
+          }
+          return obj;
+        }
+      });
+      setNewdata(newobj);
+      dispatch(AddSp(newobj));
+      /* setNewdpdata(
+          newdpdata.map((obj, index) => {
             if (obj.key == boxno.slice(i * 3, i * 3 + 3)) {
               return { ...obj, num: JSON.parse(obj.num) + JSON.parse(amount) };
             }
@@ -61,20 +65,19 @@ const CloseEpanel = () => {
         );
         dispatch(AddDp(newdpdata));
         setNewtpdata(
-          newtpdata.map((obj, i) => {
+          newtpdata.map((obj, index) => {
             if (obj.key == boxno.slice(i * 3, i * 3 + 3)) {
               return { ...obj, num: JSON.parse(obj.num) + JSON.parse(amount) };
             }
             return obj;
           })
         );
-        dispatch(AddTp(newtpdata));
-      }
+        dispatch(AddTp(newtpdata));*/
     }
     if (pane === "single" && boxno.length % 1 === 0 && amount !== 0) {
       for (let i = 0; i < boxno.length; i++) {
         setNewsingledata(
-          newsingledata.map((obj, i) => {
+          newsingledata.map((obj, index) => {
             if (obj.key == boxno.slice(i, i + 1)) {
               return { ...obj, num: JSON.parse(obj.num) + JSON.parse(amount) };
             }
