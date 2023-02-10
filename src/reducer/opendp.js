@@ -92,10 +92,6 @@ var initialState = [
     num: 0,
   },
   {
-    key: "300",
-    num: 0,
-  },
-  {
     key: "266",
     num: 0,
   },
