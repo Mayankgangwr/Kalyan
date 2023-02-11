@@ -167,38 +167,6 @@ const OpenEpanel = () => {
         <div className="row">
           <div className="col-lg-6 col-md-7 col-sm-8 col-12 mx-auto">
             <div className="row box-row mt-2">
-              <div className="col-12 px-1 mt-2">
-                <div className="d-flex justify-content-between">
-                  <button
-                    type="submit"
-                    className="btn btn-primary mx-1"
-                    style={{ borderRadius: "10px" }}
-                  >
-                    Family
-                  </button>
-                  <button
-                    type="submit"
-                    className="btn btn-primary mx-1"
-                    style={{ borderRadius: "10px" }}
-                  >
-                    Moter
-                  </button>
-                  <button
-                    type="submit"
-                    className="btn btn-primary me-1"
-                    style={{ borderRadius: "10px" }}
-                  >
-                    C / P
-                  </button>
-                  <button
-                    type="submit"
-                    className="btn btn-primary me-1"
-                    style={{ borderRadius: "10px" }}
-                  >
-                    Master
-                  </button>
-                </div>
-              </div>
               <div className="col-3 px-1 mt-2">
                 <label>
                   <input
@@ -238,7 +206,39 @@ const OpenEpanel = () => {
                   Single
                 </label>
               </div>
-              <div className="col-6 px-1 mt-2">
+              <div className="col-12 px-1 mt-2">
+                <div className="d-flex justify-content-between">
+                  <button
+                    type="submit"
+                    className="btn btn-primary w-100 mx-1"
+                    style={{ borderRadius: "10px" }}
+                  >
+                    Family
+                  </button>
+                  <button
+                    type="submit"
+                    className="btn btn-primary w-100 mx-1"
+                    style={{ borderRadius: "10px" }}
+                  >
+                    Moter
+                  </button>
+                  <button
+                    type="submit"
+                    className="btn btn-primary w-100 mx-1"
+                    style={{ borderRadius: "10px" }}
+                  >
+                    C / P
+                  </button>
+                  <button
+                    type="submit"
+                    className="btn btn-primary w-100 ms-1"
+                    style={{ borderRadius: "10px" }}
+                  >
+                    Master
+                  </button>
+                </div>
+              </div>
+              <div className="col-7 px-1 mt-2">
                 <input
                   type="number"
                   name="boxno"
@@ -248,27 +248,28 @@ const OpenEpanel = () => {
                   placeholder="Enter Box Number"
                 />
               </div>
-              <div className="col-3 px-1 mt-2">
-                <input
-                  type="number"
-                  name="amount"
-                  onChange={handleAmmount}
-                  value={amount}
-                  className="form-control w-100"
-                  placeholder="Amount"
-                />
+              <div className="col-5 px-1 mt-2">
+                <div className="d-flex justify-content-between">
+                  <input
+                    type="number"
+                    name="amount"
+                    onChange={handleAmmount}
+                    value={amount}
+                    className="form-control"
+                    placeholder="Amount"
+                    style={{ marginRight: "5px", paddingRight: "35px" }}
+                  />
+                  <button
+                    type="submit"
+                    onClick={AddData}
+                    className="btn btn-success w-100"
+                    style={{ borderRadius: "10px" }}
+                  >
+                    Save
+                  </button>
+                </div>
               </div>
-              <div className="col-3 px-1 mt-2">
-                <button
-                  type="submit"
-                  onClick={AddData}
-                  className="btn btn-success w-100"
-                  style={{ borderRadius: "10px" }}
-                >
-                  Save
-                </button>
-              </div>
-              <div className="col-7 px-1 mt-2">
+              <div className="col-6 px-1 mt-2">
                 <select
                   name="client"
                   onChange={handleClient}
@@ -280,7 +281,7 @@ const OpenEpanel = () => {
                   <option value="Mayank Gangwar">Mayank Gangwar</option>
                 </select>
               </div>
-              <div className="col-5 px-1 mt-2">
+              <div className="col-6 px-1 mt-2">
                 <div className="d-flex justify-content-between">
                   <button
                     to="../master"
