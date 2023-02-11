@@ -49,6 +49,7 @@ const CloseEpanel = () => {
     //alert("printed");
   };
   const [newdata, setNewdata] = useState(spdata);
+  let oldpane = pane;
   const AddData = (e) => {
     // e.preventDefault();
     if (client !== "") {
@@ -95,13 +96,15 @@ const CloseEpanel = () => {
           //dispatch(AddSingle(newsingledata));
         }
       }
-      setAmount("");
-      setBoxno("");
+
+      setPane("");
     } else {
       alert("No Client Selected");
     }
   };
-
+  if (oldpane !== "") {
+    setPane(oldpane);
+  }
   return (
     <>
       <nav
