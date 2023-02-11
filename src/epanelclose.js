@@ -152,7 +152,7 @@ const CloseEpanel = () => {
         <div className="row">
           <div className="col-lg-6 col-md-7 col-sm-8 col-12 mx-auto">
             <div className="row box-row mt-2">
-              <div className="col-3 px-1 mt-2">
+              <div className="col-3 px-1 mt-2 mb-1">
                 <label>
                   <input
                     type="radio"
@@ -165,7 +165,7 @@ const CloseEpanel = () => {
                   Panel
                 </label>
               </div>
-              <div className="col-3 px-1 mt-2">
+              <div className="col-3 px-1 mt-2 mb-1">
                 <label>
                   <input
                     type="radio"
@@ -178,6 +178,38 @@ const CloseEpanel = () => {
                   Single
                 </label>
               </div>
+              <div className="col-12 px-1 mt-2">
+                <div className="d-flex justify-content-between">
+                  <button
+                    type="submit"
+                    className="btn btn-primary w-100 mx-1"
+                    style={{ borderRadius: "10px" }}
+                  >
+                    Family
+                  </button>
+                  <button
+                    type="submit"
+                    className="btn btn-primary w-100 mx-1"
+                    style={{ borderRadius: "10px" }}
+                  >
+                    Moter
+                  </button>
+                  <button
+                    type="submit"
+                    className="btn btn-primary w-100 mx-1"
+                    style={{ borderRadius: "10px" }}
+                  >
+                    C/P
+                  </button>
+                  <button
+                    type="submit"
+                    className="btn btn-primary w-100 ms-1"
+                    style={{ borderRadius: "10px" }}
+                  >
+                    Master
+                  </button>
+                </div>
+              </div>
               <div className="col-7 px-1 mt-2">
                 <input
                   type="number"
@@ -188,34 +220,27 @@ const CloseEpanel = () => {
                   placeholder="Enter Box Number"
                 />
               </div>
-              <div className="col-3 px-1 mt-2">
-                <input
-                  type="number"
-                  name="amount"
-                  onChange={handleAmmount}
-                  value={amount}
-                  className="form-control w-100"
-                  placeholder="Amount"
-                />
+              <div className="col-5 px-1 mt-2">
+                <div className="d-flex justify-content-between">
+                  <input
+                    type="number"
+                    name="amount"
+                    onChange={handleAmmount}
+                    value={amount}
+                    className="form-control Amount-box"
+                    placeholder="Amount"
+                  />
+                  <button
+                    type="submit"
+                    onClick={AddData}
+                    className="btn btn-info w-100"
+                    style={{ borderRadius: "10px" }}
+                  >
+                    Enter
+                  </button>
+                </div>
               </div>
-              <div
-                className="col-2 d-grid mt-2"
-                style={{
-                  placeItems: "center",
-                  borderRadius: "50%",
-                  backgroundColor: "black",
-                  width: "35px",
-                  height: "35px",
-                  margin: "auto",
-                }}
-              >
-                <img
-                  onClick={AddData}
-                  src="./img/arrow.png"
-                  style={{ height: "24px", marginLeft: "-3px" }}
-                />
-              </div>
-              <div className="col-8 px-1 mt-2">
+              <div className="col-6 px-1 mt-2">
                 <select
                   name="client"
                   onChange={handleClient}
@@ -227,16 +252,25 @@ const CloseEpanel = () => {
                   <option value="Mayank Gangwar">Mayank Gangwar</option>
                 </select>
               </div>
-              <div className="col-4 px-1 mt-2">
-                <button
-                  to="../master"
-                  type="submit"
-                  onClick={Enable}
-                  className="btn btn-primary"
-                  style={{ borderRadius: "10px" }}
-                >
-                  Clear
-                </button>
+              <div className="col-6 px-1 mt-2">
+                <div className="d-flex justify-content-between">
+                  <button
+                    to="../master"
+                    type="submit"
+                    onClick={Enable}
+                    className="btn btn-danger w-100 me-1"
+                    style={{ borderRadius: "10px" }}
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="submit"
+                    className="btn btn-success w-100"
+                    style={{ borderRadius: "10px" }}
+                  >
+                    Save
+                  </button>
+                </div>
               </div>
             </div>
           </div>

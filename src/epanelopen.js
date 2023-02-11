@@ -167,7 +167,7 @@ const OpenEpanel = () => {
         <div className="row">
           <div className="col-lg-6 col-md-7 col-sm-8 col-12 mx-auto">
             <div className="row box-row mt-2">
-              <div className="col-3 px-1 mt-2">
+              <div className="col-3 px-1 mt-2 mb-1">
                 <label>
                   <input
                     type="radio"
@@ -180,7 +180,7 @@ const OpenEpanel = () => {
                   Panel
                 </label>
               </div>
-              <div className="col-3 px-1 mt-2">
+              <div className="col-3 px-1 mt-2 mb-1">
                 <label>
                   <input
                     type="radio"
@@ -193,7 +193,7 @@ const OpenEpanel = () => {
                   Jode
                 </label>
               </div>
-              <div className="col-3 px-1 mt-2">
+              <div className="col-3 px-1 mt-2 mb-1">
                 <label>
                   <input
                     type="radio"
@@ -227,7 +227,7 @@ const OpenEpanel = () => {
                     className="btn btn-primary w-100 mx-1"
                     style={{ borderRadius: "10px" }}
                   >
-                    C / P
+                    C/P
                   </button>
                   <button
                     type="submit"
@@ -255,17 +255,16 @@ const OpenEpanel = () => {
                     name="amount"
                     onChange={handleAmmount}
                     value={amount}
-                    className="form-control"
+                    className="form-control Amount-box"
                     placeholder="Amount"
-                    style={{ marginRight: "5px", paddingRight: "35px" }}
                   />
                   <button
                     type="submit"
                     onClick={AddData}
-                    className="btn btn-success w-100"
+                    className="btn btn-info w-100"
                     style={{ borderRadius: "10px" }}
                   >
-                    Save
+                    Enter
                   </button>
                 </div>
               </div>

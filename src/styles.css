@@ -21,3 +21,16 @@
 .select-box {
   padding: 4.5px 12px 3.68px !important;
 }
+.Amount-box {
+  margin-right: 5px;
+  padding-right: 35px;
+}
+@media only screen and (min-width: 300px) and (max-width: 768px) {
+  .Amount-box {
+    margin-right: 5px;
+    width: 61px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 14px;
+  }
+}
