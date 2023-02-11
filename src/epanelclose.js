@@ -97,14 +97,11 @@ const CloseEpanel = () => {
         }
       }
 
-      setPane("");
+      setAmount("");
     } else {
       alert("No Client Selected");
     }
   };
-  if (oldpane !== "") {
-    setPane(oldpane);
-  }
   return (
     <>
       <nav

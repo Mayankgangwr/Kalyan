@@ -108,7 +108,6 @@ const OpenEpanel = () => {
         }
       }
       setAmount("");
-      setBoxno("");
     } else {
       alert("No Client Selected");
     }
@@ -168,6 +167,38 @@ const OpenEpanel = () => {
         <div className="row">
           <div className="col-lg-6 col-md-7 col-sm-8 col-12 mx-auto">
             <div className="row box-row mt-2">
+              <div className="col-12 px-1 mt-2">
+                <div className="d-flex justify-content-between">
+                  <button
+                    type="submit"
+                    className="btn btn-primary mx-1"
+                    style={{ borderRadius: "10px" }}
+                  >
+                    Family
+                  </button>
+                  <button
+                    type="submit"
+                    className="btn btn-primary mx-1"
+                    style={{ borderRadius: "10px" }}
+                  >
+                    Moter
+                  </button>
+                  <button
+                    type="submit"
+                    className="btn btn-primary me-1"
+                    style={{ borderRadius: "10px" }}
+                  >
+                    C / P
+                  </button>
+                  <button
+                    type="submit"
+                    className="btn btn-primary me-1"
+                    style={{ borderRadius: "10px" }}
+                  >
+                    Master
+                  </button>
+                </div>
+              </div>
               <div className="col-3 px-1 mt-2">
                 <label>
                   <input
@@ -207,7 +238,7 @@ const OpenEpanel = () => {
                   Single
                 </label>
               </div>
-              <div className="col-7 px-1 mt-2">
+              <div className="col-6 px-1 mt-2">
                 <input
                   type="number"
                   name="boxno"
@@ -227,24 +258,17 @@ const OpenEpanel = () => {
                   placeholder="Amount"
                 />
               </div>
-              <div
-                className="col-2 d-grid mt-2"
-                style={{
-                  placeItems: "center",
-                  borderRadius: "50%",
-                  backgroundColor: "black",
-                  width: "35px",
-                  height: "35px",
-                  margin: "auto",
-                }}
-              >
-                <img
+              <div className="col-3 px-1 mt-2">
+                <button
+                  type="submit"
                   onClick={AddData}
-                  src="./img/arrow.png"
-                  style={{ height: "24px", marginLeft: "-3px" }}
-                />
+                  className="btn btn-success w-100"
+                  style={{ borderRadius: "10px" }}
+                >
+                  Save
+                </button>
               </div>
-              <div className="col-8 px-1 mt-2">
+              <div className="col-7 px-1 mt-2">
                 <select
                   name="client"
                   onChange={handleClient}
@@ -256,16 +280,25 @@ const OpenEpanel = () => {
                   <option value="Mayank Gangwar">Mayank Gangwar</option>
                 </select>
               </div>
-              <div className="col-4 px-1 mt-2">
-                <button
-                  to="../master"
-                  type="submit"
-                  onClick={Enable}
-                  className="btn btn-primary"
-                  style={{ borderRadius: "10px" }}
-                >
-                  Clear
-                </button>
+              <div className="col-5 px-1 mt-2">
+                <div className="d-flex justify-content-between">
+                  <button
+                    to="../master"
+                    type="submit"
+                    onClick={Enable}
+                    className="btn btn-danger w-100 me-1"
+                    style={{ borderRadius: "10px" }}
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="submit"
+                    className="btn btn-success w-100"
+                    style={{ borderRadius: "10px" }}
+                  >
+                    Save
+                  </button>
+                </div>
               </div>
             </div>
           </div>
