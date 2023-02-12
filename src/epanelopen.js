@@ -9,6 +9,7 @@ import JodePanel from "./EpanelOpen/jodepanel";
 import { useSelector, useDispatch } from "react-redux";
 
 const OpenEpanel = () => {
+  const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const spdata = useSelector((state) => state.OpenSpData);
   const tpdata = useSelector((state) => state.OpenTpData);
   const dpdata = useSelector((state) => state.OpenDpData);
@@ -305,7 +306,30 @@ const OpenEpanel = () => {
         </div>
 
         {/*Button Close */}
-        
+        <div className="row mt-3">
+          {arr.map((el) => (
+            <div className="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12 mt-2">
+              <div className="card shadows">
+                <div className="card-header p-2">
+                  <div className="d-flex justify-content-between">
+                    <div className="ms-2 my-auto">
+                      <h5 className="card-title mb-0">Prince Kurmi</h5>
+                    </div>
+
+                    <div className="d-flex justify-content-between">
+                      <button className="btn text-white btn-lg btn-floating btn-parple me-1">
+                        <i class="fas fa-edit"></i>
+                      </button>
+                      <button className="btn text-white btn-lg btn-danger btn-floating">
+                        <i class="fas fa-trash"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </>
   );
