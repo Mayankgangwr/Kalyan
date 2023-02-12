@@ -105,24 +105,29 @@ const CloseEpanel = () => {
   return (
     <>
       <nav
-        className="navbar navbar-expand-lg  hide-on-print"
+        className="navbar navbar-expand-lg fixed-top  hide-on-print"
         style={{ backgroundColor: "#ed302f" }}
       >
         <div className="container-fluid">
           <div className="row w-100">
-            <div className="col-4">
+            <div className="col-3">
+              <button className="btn btn-sm btn-primary">
+                <i class="fas fa-long-arrow-alt-left"></i>
+              </button>
+            </div>
+            <div className="col-3">
               <h6 className="card-title text-center">E-Panel</h6>
             </div>
-            <div className="col-4">
+            <div className="col-3">
               <h6 className="card-title text-center">FD Close</h6>
             </div>
-            <div className="col-4">
+            <div className="col-3">
               <h6 className="card-title text-center">22/01/2023</h6>
             </div>
           </div>
         </div>
       </nav>
-      <div className="container-fluid pb-5">
+      <div className="container-fluid pb-5" style={{ marginTop: "46px" }}>
         <div className="row">
           {/*Ps Panel Start*/}
           <div className="col-lg-4 col-md-4 col-12 height-on-print mx-0 px-0">

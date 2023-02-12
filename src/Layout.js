@@ -5,13 +5,15 @@ const Layout = () => {
     <>
       <div className="container-fluid fixed-top bg-dark m-nav mx-0 nav-px">
         <div
-          className="d-flex justify-content-between"
+          className="d-flex justify-content-center mt-2"
           style={{ lineHeight: "12px" }}
-        ></div>
-        <div className="d-flex justify-content-between py-2">
-          <Link className="btn btn-link-color" to="sheets">
-            Jantri
+        >
+          <Link className="btn-title" to="sheets">
+            JANTRI SOFTWARE
           </Link>
+        </div>
+
+        <div className="d-flex justify-content-between py-2">
           <Link className="btn btn-link-color" to="sheets">
             <i class="fas fa-table"></i> Sheets
           </Link>
@@ -69,8 +71,8 @@ const Layout = () => {
       >
         <div className="container-fluid">
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <Link className="btn btn-link-color mt-2 mt-lg-0" to="/">
-              Jantri Software
+            <Link className="btn-title" to="/">
+              JANTRI SOFTWARE
             </Link>
             <ul
               className="navbar-nav ms-auto"
