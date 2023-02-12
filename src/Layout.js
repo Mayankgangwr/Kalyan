@@ -9,14 +9,8 @@ const Layout = () => {
           style={{ lineHeight: "12px" }}
         ></div>
         <div className="d-flex justify-content-between py-2">
-          <Link className="navbar-brand" to="/">
-            <img
-              src="./img/logo.png"
-              height="30"
-              alt="MDB Logo"
-              loading="lazy"
-              style={{ filter: "hue-rotate(150deg)" }}
-            />
+          <Link className="btn btn-link-color" to="sheets">
+            Jantri
           </Link>
           <Link className="btn btn-link-color" to="sheets">
             <i class="fas fa-table"></i> Sheets
@@ -75,14 +69,8 @@ const Layout = () => {
       >
         <div className="container-fluid">
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <Link className="navbar-brand mt-2 mt-lg-0" to="/">
-              <img
-                src="./img/logo.png"
-                height="30"
-                alt="MDB Logo"
-                loading="lazy"
-                style={{ filter: "hue-rotate(150deg)" }}
-              />
+            <Link className="btn btn-link-color mt-2 mt-lg-0" to="/">
+              Jantri Software
             </Link>
             <ul
               className="navbar-nav ms-auto"
