@@ -114,7 +114,6 @@ const OpenEpanel = () => {
       alert("No Client Selected");
     }
   };
-
   return (
     <>
       <nav
