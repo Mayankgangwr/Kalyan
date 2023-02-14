@@ -135,7 +135,7 @@ const OpenEpanel = () => {
               <h6 className="card-title text-center mt-1">E-Panel</h6>
             </div>
             <div className="col-3">
-              <h6 className="card-title text-center mt-1">FD Close</h6>
+              <h6 className="card-title text-center mt-1">FD Open</h6>
             </div>
             <div className="col-4">
               <h6 className="card-title text-center mt-1">22/01/2023</h6>
