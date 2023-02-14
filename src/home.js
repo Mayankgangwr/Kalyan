@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 const Home = () => {
   const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -6,7 +7,17 @@ const Home = () => {
   const date = `${current.getDate()}/${
     current.getMonth() + 1
   }/${current.getFullYear()}`;
-
+  useEffect(() => {
+    getUsers();
+  });
+  function getUsers() {
+    axios
+      .get(`https://jantrisoftware.in/kalyan/sheets/read.php`)
+      .then(function (response) {
+        console.log(response.data);
+        alert("ok");
+      });
+  }
   return (
     <>
       <div className="container-fluid mx-0  main-page">
