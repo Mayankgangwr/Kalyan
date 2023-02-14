@@ -1,6 +1,6 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./master.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SpPanel from "./CloseEpanel/spepanel";
 import DpPanel from "./CloseEpanel/dpepanel";
 import SingleClose from "./CloseEpanel/singleclose";
@@ -15,6 +15,7 @@ const CloseEpanel = () => {
   const dpdata = useSelector((state) => state.DpData);
   const Singledata = useSelector((state) => state.SingleData);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [boxno, setBoxno] = useState("");
   const [amount, setAmount] = useState("");
   const [pane, setPane] = useState("panel");
@@ -111,7 +112,10 @@ const CloseEpanel = () => {
         <div className="container-fluid">
           <div className="row w-100">
             <div className="col-3">
-              <button className="btn btn-sm btn-primary">
+              <button
+                onClick={() => navigate(-1)}
+                className="btn btn-sm btn-primary"
+              >
                 <i class="fas fa-long-arrow-alt-left"></i>
               </button>
             </div>

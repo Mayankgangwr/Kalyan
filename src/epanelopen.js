@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./master.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SpPanel from "./EpanelOpen/spepanel";
 import DpPanel from "./EpanelOpen/dpepanel";
 import SingleClose from "./EpanelOpen/singleclose";
@@ -16,6 +16,7 @@ const OpenEpanel = () => {
   const Singledata = useSelector((state) => state.OpenSingleData);
   const JodeData = useSelector((state) => state.JodeData);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [boxno, setBoxno] = useState("");
   const [amount, setAmount] = useState("");
   const [pane, setPane] = useState("panel");
@@ -123,7 +124,10 @@ const OpenEpanel = () => {
         <div className="container-fluid">
           <div className="row w-100">
             <div className="col-2">
-              <button className="btn btn-sm btn-primary">
+              <button
+                onClick={() => navigate(-1)}
+                className="btn btn-sm btn-primary"
+              >
                 <i class="fas fa-long-arrow-alt-left"></i>
               </button>
             </div>

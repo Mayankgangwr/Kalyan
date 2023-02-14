@@ -15,7 +15,6 @@ const Home = () => {
       .get(`https://jantrisoftware.in/kalyan/sheets/read.php`)
       .then(function (response) {
         console.log(response.data);
-        alert("ok");
       });
   }
   return (

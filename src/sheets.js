@@ -7,7 +7,7 @@ const Sheets = () => {
   }/${current.getDate()}`;
 
   const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-  const [sheetdata, setSheetdata] = useState([""]);
+  const [sheetdata, setSheetdata] = useState([]);
   const [btn, setBtn] = useState("Add New");
   const [name, setName] = useState("");
   const [editsheet, setEditsheet] = useState({
@@ -103,34 +103,35 @@ const Sheets = () => {
         </form>
         <hr />
         <div className="row">
-          {sheetdata.map((el) => (
-            <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12 col-12 mt-2">
-              <div className="card shadow-5">
-                <div className="card-header p-2">
-                  <div className="d-flex justify-content-between">
-                    <div className="ms-2">
-                      <h5 className="card-title mb-0">{el.name}</h5>
-                      <small className="text-muted">{el.date}</small>
-                    </div>
+          {sheetdata.length !== 0 &&
+            sheetdata.map((el) => (
+              <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12 col-12 mt-2">
+                <div className="card shadow-5">
+                  <div className="card-header p-2">
                     <div className="d-flex justify-content-between">
-                      <button
-                        onClick={() => EditSheets(el.id)}
-                        className="btn text-white btn-lg btn-floating btn-parple me-1"
-                      >
-                        <i class="fas fa-edit"></i>
-                      </button>
-                      <button
-                        onClick={() => DeleteSheets(el.id)}
-                        className="btn text-white btn-lg btn-danger btn-floating"
-                      >
-                        <i class="fas fa-trash"></i>
-                      </button>
+                      <div className="ms-2">
+                        <h5 className="card-title mb-0">{el.name}</h5>
+                        <small className="text-muted">{el.date}</small>
+                      </div>
+                      <div className="d-flex justify-content-between">
+                        <button
+                          onClick={() => EditSheets(el.id)}
+                          className="btn text-white btn-lg btn-floating btn-parple me-1"
+                        >
+                          <i class="fas fa-edit"></i>
+                        </button>
+                        <button
+                          onClick={() => DeleteSheets(el.id)}
+                          className="btn text-white btn-lg btn-danger btn-floating"
+                        >
+                          <i class="fas fa-trash"></i>
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
       </div>
     </>
