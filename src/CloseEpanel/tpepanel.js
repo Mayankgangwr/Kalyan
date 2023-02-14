@@ -1,19 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 const TpPanel = () => {
-  const [tpdata, setTpdata] = useState([
-    { key: "111", num: 0 },
-    { key: "222", num: 0 },
-    { key: "333", num: 0 },
-    { key: "444", num: 0 },
-    { key: "555", num: 0 },
-    { key: "666", num: 0 },
-    { key: "777", num: 0 },
-    { key: "888", num: 0 },
-    { key: "999", num: 0 },
-    { key: "000", num: 0 },
-    { key: "na", num: 0 },
-    { key: "no", num: 0 },
-  ]);
+  const TpData = useSelector((state) => state.TpData);
+  const [tpdata, setTpdata] = useState(TpData);
+  useEffect(() => {
+    setTpdata(TpData);
+  });
   const handleChange = (e) => {
     e.preventDefault();
     const name = e.target.name;
