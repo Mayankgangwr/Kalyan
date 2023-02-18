@@ -1,43 +1,43 @@
 const Single = [
   {
     key: "1",
-    num: 1000,
+    num: 0,
   },
   {
     key: "2",
-    num: 1000,
+    num: 0,
   },
   {
     key: "3",
-    num: 1000,
+    num: 0,
   },
   {
     key: "4",
-    num: 1000,
+    num: 0,
   },
   {
     key: "5",
-    num: 1000,
+    num: 0,
   },
   {
     key: "6",
-    num: 1000,
+    num: 0,
   },
   {
     key: "7",
-    num: 1000,
+    num: 0,
   },
   {
     key: "8",
-    num: 1000,
+    num: 0,
   },
   {
     key: "9",
-    num: 1000,
+    num: 0,
   },
   {
     key: "0",
-    num: 1000,
+    num: 0,
   },
   {
     key: "na",

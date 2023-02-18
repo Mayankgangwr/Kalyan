@@ -1,6 +1,19 @@
-import { Outlet, Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Outlet, Link, useNavigate } from "react-router-dom";
 import "./layout.css";
 const Layout = () => {
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (localStorage.getItem("usermobile") === null) {
+      navigate("/login");
+    }
+  }, []);
+  const LogOut = () => {
+    localStorage.removeItem("username");
+    localStorage.removeItem("usermobile");
+    localStorage.removeItem("userid");
+    navigate("/login");
+  };
   return (
     <>
       <div className="container-fluid fixed-top bg-dark m-nav mx-0 nav-px">
@@ -29,7 +42,7 @@ const Layout = () => {
             data-mdb-toggle="dropdown"
           >
             <button className="btn btn-link-color">
-              Prince
+              {localStorage.getItem("username")}
               <i className="fas fa-ellipsis-v ms-1"></i>
             </button>
           </li>
@@ -54,13 +67,13 @@ const Layout = () => {
               </Link>
             </li>
             <li>
-              <Link
-                to="logout"
+              <button
+                onClick={LogOut}
                 className="nav-item btn btn-link-color w-100 my-2"
               >
                 <i class="fas fa-sign-in-alt me-1"></i>
                 Logout
-              </Link>
+              </button>
             </li>
           </ul>
         </div>
@@ -104,7 +117,7 @@ const Layout = () => {
                 data-mdb-toggle="dropdown"
               >
                 <button className="btn btn-link-color">
-                  Prince
+                  {localStorage.getItem("username")}
                   <i className="fas fa-ellipsis-v ms-1"></i>
                 </button>
               </li>
@@ -129,13 +142,16 @@ const Layout = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    to="logout"
+                  <button
+                    type="button"
+                    onClick={() => {
+                      LogOut();
+                    }}
                     className="nav-item btn btn-link-color w-100 my-2"
                   >
                     <i class="fas fa-sign-in-alt me-1"></i>
                     Logout
-                  </Link>
+                  </button>
                 </li>
               </ul>
             </ul>

@@ -1,22 +1,24 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 const Home = () => {
   const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const [sheetsdata, setSheetsdata] = useState([]);
   const current = new Date();
-  const date = `${current.getDate()}/${
+  const date = `${current.getDate()}-${
     current.getMonth() + 1
-  }/${current.getFullYear()}`;
+  }-${current.getFullYear()}`;
   useEffect(() => {
     getUsers();
-  });
+  }, []);
   function getUsers() {
     axios
       .get(`https://jantrisoftware.in/kalyan/sheets/read.php`)
       .then(function (response) {
-        console.log(response.data);
+        setSheetsdata(response.data);
       });
   }
+
   return (
     <>
       <div className="container-fluid mx-0  main-page">
@@ -130,80 +132,87 @@ const Home = () => {
         </div>
         <hr />
         <div className="row">
-          {arr.map((el) => (
-            <div className="col-lg-4 col-md-6 col-sm-6 col-xs-12 col-12 mt-2">
-              <div className="card shadow-5">
-                <div className="card-header p-2">
-                  <div className="d-flex justify-content-between">
-                    <div>
-                      <h5 className="card-title mb-0">FD</h5>
-                      <small className="text-muted">2023-01-29</small>
-                    </div>
-
+          {sheetsdata.length !== 0 &&
+            sheetsdata.map((el) => (
+              <div className="col-lg-4 col-md-6 col-sm-6 col-xs-12 col-12 mt-2">
+                <div className="card shadow-5">
+                  <div className="card-header p-2">
                     <div className="d-flex justify-content-between">
-                      <button className="btn btn-sm btn-info declear-btn me-1 py-1 px-1">
-                        Open <br /> 345
+                      <div>
+                        <h5 className="card-title mb-0">{el.name}</h5>
+                        <small className="text-muted">{date}</small>
+                      </div>
+
+                      <div className="d-flex justify-content-between">
+                        <button className="btn btn-sm btn-info declear-btn me-1 py-1 px-1">
+                          Open <br /> 345
+                        </button>
+                        <button className="btn btn-sm btn-info declear-btn me-1 px-1">
+                          Close
+                          <br /> 345
+                        </button>
+                        <button className="btn btn-sm btn-info declear-btn me-1 px-1">
+                          Jode
+                          <br /> 345
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="card-body p-2"
+                    style={{ backgroundColor: "#FDF" }}
+                  >
+                    <div className="d-flex justify-content-between mt-2 mb-1">
+                      <div className="">
+                        <h4>Open</h4>
+                      </div>
+                      <button className="btn btn-sm btn-primary rounded-pill">
+                        <small>Declare</small>
                       </button>
-                      <button className="btn btn-sm btn-info declear-btn me-1 px-1">
-                        Close
-                        <br /> 345
+                      <button className="btn btn-sm btn-primary rounded-pill">
+                        <Link className="text-light" to={`openmaster/${el.id}`}>
+                          <small>Master</small>
+                        </Link>
                       </button>
-                      <button className="btn btn-sm btn-info declear-btn me-1 px-1">
-                        Jode
-                        <br /> 345
+                      <button className="btn btn-sm btn-primary rounded-pill">
+                        <Link className="text-light" to={`openepanel/${el.id}`}>
+                          <small>E-Panel</small>
+                        </Link>
                       </button>
                     </div>
                   </div>
-                </div>
-                <div
-                  className="card-body p-2"
-                  style={{ backgroundColor: "#FDF" }}
-                >
-                  <div className="d-flex justify-content-between mt-2 mb-1">
-                    <div className="">
-                      <h4>Open</h4>
+                  <div
+                    className="card-footer p-2"
+                    style={{ backgroundColor: "rgb(206 194 206)" }}
+                  >
+                    <div className="d-flex justify-content-between mt-2 mb-1">
+                      <div className="">
+                        <h4>Close</h4>
+                      </div>
+                      <button className="btn btn-sm btn-primary rounded-pill">
+                        <small>Declare</small>
+                      </button>
+                      <button className="btn btn-sm btn-primary rounded-pill">
+                        <Link
+                          className="text-light"
+                          to={`closemaster/${el.id}`}
+                        >
+                          <small>Master</small>
+                        </Link>
+                      </button>
+                      <button className="btn btn-sm btn-primary rounded-pill">
+                        <Link
+                          className="text-light"
+                          to={`closeepanel/${el.id}`}
+                        >
+                          <small>E-Panel</small>
+                        </Link>
+                      </button>
                     </div>
-                    <button className="btn btn-sm btn-primary rounded-pill">
-                      <small>Declare</small>
-                    </button>
-                    <button className="btn btn-sm btn-primary rounded-pill">
-                      <Link className="text-light" to="openmaster">
-                        <small>Master</small>
-                      </Link>
-                    </button>
-                    <button className="btn btn-sm btn-primary rounded-pill">
-                      <Link className="text-light" to="openepanel">
-                        <small>E-Panel</small>
-                      </Link>
-                    </button>
-                  </div>
-                </div>
-                <div
-                  className="card-footer p-2"
-                  style={{ backgroundColor: "rgb(206 194 206)" }}
-                >
-                  <div className="d-flex justify-content-between mt-2 mb-1">
-                    <div className="">
-                      <h4>Close</h4>
-                    </div>
-                    <button className="btn btn-sm btn-primary rounded-pill">
-                      <small>Declare</small>
-                    </button>
-                    <button className="btn btn-sm btn-primary rounded-pill">
-                      <Link className="text-light" to="closemaster">
-                        <small>Master</small>
-                      </Link>
-                    </button>
-                    <button className="btn btn-sm btn-primary rounded-pill">
-                      <Link className="text-light" to="closeepanel">
-                        <small>E-Panel</small>
-                      </Link>
-                    </button>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
       </div>
     </>

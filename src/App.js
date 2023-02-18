@@ -9,8 +9,10 @@ import Clients from "./clients";
 import axios from "axios";
 import OpenEpanel from "./epanelopen";
 import CloseEpanel from "./epanelclose";
+import CEpanel from "./cep";
 import { useSelector, useDispatch } from "react-redux";
 import { ReadOrder } from "./action/index";
+import Login from "./login";
 import "./styles.css";
 
 const App = () => {
@@ -22,10 +24,11 @@ const App = () => {
           <Route path="/sheets" element={<Sheets />} />
           <Route path="/clients" element={<Clients />} />
         </Route>
-        <Route path="/openepanel" element={<OpenEpanel />} />
-        <Route path="/closeepanel" element={<CloseEpanel />} />
-        <Route path="/closemaster" element={<CloseMaster />} />
-        <Route path="/openmaster" element={<OpenMaster />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/openepanel/:sheetid" element={<OpenEpanel />} />
+        <Route path="/closeepanel/:sheetid" element={<CEpanel />} />
+        <Route path="/closemaster/:sheetid" element={<CloseMaster />} />
+        <Route path="/openmaster/:sheetid" element={<OpenMaster />} />
       </Routes>
     </BrowserRouter>
   );

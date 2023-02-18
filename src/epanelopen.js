@@ -173,11 +173,18 @@ const OpenEpanel = () => {
         </div>
         <hr />
         {/*Button Open */}
-        <div className="row">
-          <div className="col-lg-6 col-md-7 col-sm-8 col-12 mx-auto">
+        <div className="row fixed-bottom">
+          <div
+            className="col-lg-6 col-md-7 col-sm-8 col-12 mx-auto"
+            style={{
+              background: "#000",
+              borderRadius: "12px",
+              paddingBottom: "20px",
+            }}
+          >
             <div className="row box-row mt-2">
               <div className="col-3 px-1 mt-2 mb-1">
-                <label>
+                <label className="text-light">
                   <input
                     type="radio"
                     value="panel"
@@ -190,7 +197,7 @@ const OpenEpanel = () => {
                 </label>
               </div>
               <div className="col-3 px-1 mt-2 mb-1">
-                <label>
+                <label className="text-light">
                   <input
                     type="radio"
                     value="jode"
@@ -203,7 +210,7 @@ const OpenEpanel = () => {
                 </label>
               </div>
               <div className="col-3 px-1 mt-2 mb-1">
-                <label>
+                <label className="text-light">
                   <input
                     type="radio"
                     value="single"
@@ -314,7 +321,7 @@ const OpenEpanel = () => {
         </div>
 
         {/*Button Close */}
-        <div className="row mt-3">
+        <div className="row mt-3" style={{ marginBottom: "180px" }}>
           {arr.map((el) => (
             <div className="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12 mt-2">
               <div className="card shadows">
