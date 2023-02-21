@@ -9,6 +9,7 @@ import Single from "./single";
 const CEpanel = () => {
   const navigate = useNavigate();
   const params = useParams();
+  const [editsheetid, setEditSheetid] = useState("");
   const [sheetdata, setSheetdata] = useState([]);
   const [sheetname, setSheetname] = useState("");
   const [boxno, setBoxno] = useState("");
@@ -51,10 +52,11 @@ const CEpanel = () => {
       .get(
         `https://jantrisoftware.in/kalyan/sheetdata/read.php?userid=${localStorage.getItem(
           "userid"
-        )}`
+        )}&sheetid=${params.sheetid}`
       )
       .then(function (response) {
         setSheetdata(response.data);
+        console.log(response.data);
       });
   }
   //Entry By Box
@@ -201,21 +203,53 @@ const CEpanel = () => {
     BoxnoRef.current.focus();
   };
   const SaveData = () => {
-    const inputs = {
-      userid: localStorage.getItem("userid"),
-      clientid: client,
-      sheetid: sheetname.id,
-      sp: JSON.stringify(spdata),
-      dp: JSON.stringify(dpdata),
-      tp: JSON.stringify(tpdata),
-      ssp: JSON.stringify(singledata),
-    };
-    axios
-      .post(`https://jantrisoftware.in/kalyan/sheetdata/create.php`, inputs)
-      .then(function (response) {
-        console.log(response.data);
-        location.reload();
-      });
+    if (editsheetid !== "") {
+      const inputs = {
+        id: editsheetid,
+        sp: JSON.stringify(spdata),
+        dp: JSON.stringify(dpdata),
+        tp: JSON.stringify(tpdata),
+        ssp: JSON.stringify(singledata),
+      };
+      axios
+        .post(`https://jantrisoftware.in/kalyan/sheetdata/update.php`, inputs)
+        .then(function (response) {
+          console.log(response.data);
+          /*getSheets();
+        getClients();
+        getSheetdata();
+        BoxnoRef.current.focus();
+        setDpdata(Dpdata);
+        setSpdata(Spdata);
+        setTpdata(Tpdata);
+        setSingledata(Single);*/
+          location.reload();
+        });
+    } else {
+      const inputs = {
+        userid: localStorage.getItem("userid"),
+        clientid: client,
+        sheetid: sheetname.id,
+        sp: JSON.stringify(spdata),
+        dp: JSON.stringify(dpdata),
+        tp: JSON.stringify(tpdata),
+        ssp: JSON.stringify(singledata),
+      };
+      axios
+        .post(`https://jantrisoftware.in/kalyan/sheetdata/create.php`, inputs)
+        .then(function (response) {
+          console.log(response.data);
+          /*getSheets();
+        getClients();
+        getSheetdata();
+        BoxnoRef.current.focus();
+        setDpdata(Dpdata);
+        setSpdata(Spdata);
+        setTpdata(Tpdata);
+        setSingledata(Single);*/
+          location.reload();
+        });
+    }
   };
   const DeleteSheetData = (dataid) => {
     //e.preventDefault();
@@ -231,6 +265,16 @@ const CEpanel = () => {
         getSheetdata();
         BoxnoRef.current.focus();
       });
+  };
+  const EditData = (editsheet) => {
+    setEditSheetid(editsheet.id);
+    setSpdata(JSON.parse(editsheet.sp));
+    setDpdata(JSON.parse(editsheet.dp));
+    setTpdata(JSON.parse(editsheet.tp));
+    setSingledata(JSON.parse(editsheet.single));
+    setEditSheetid(editsheet.id);
+    setClient(editsheet.clientid);
+    setDisabled("disabled");
   };
   const handleFocus = (event) => event.target.select();
   const tp = [1, 2];
@@ -507,6 +551,20 @@ const CEpanel = () => {
           {/* Dp Panel Close */}
         </div>
         <hr />
+        <h1 className="text-end">
+          {spdata.reduce((total, item) => {
+            return total + JSON.parse(item.num);
+          }, 0) +
+            dpdata.reduce((total, item) => {
+              return total + JSON.parse(item.num);
+            }, 0) +
+            tpdata.reduce((total, item) => {
+              return total + JSON.parse(item.num);
+            }, 0) +
+            singledata.reduce((total, item) => {
+              return total + JSON.parse(item.num);
+            }, 0)}
+        </h1>
         {/*Button Open */}
         <div className="row fixed-bottom">
           <div
@@ -674,10 +732,27 @@ const CEpanel = () => {
                     <div className="d-flex justify-content-between">
                       <div className="ms-2 my-auto">
                         <h5 className="card-title mb-0">{el.clientname}</h5>
+                        <p>
+                          {JSON.parse(el.sp).reduce((total, item) => {
+                            return total + JSON.parse(item.num);
+                          }, 0) +
+                            JSON.parse(el.dp).reduce((total, item) => {
+                              return total + JSON.parse(item.num);
+                            }, 0) +
+                            JSON.parse(el.tp).reduce((total, item) => {
+                              return total + JSON.parse(item.num);
+                            }, 0) +
+                            JSON.parse(el.single).reduce((total, item) => {
+                              return total + JSON.parse(item.num);
+                            }, 0)}
+                        </p>
                       </div>
 
                       <div className="d-flex justify-content-between">
-                        <button className="btn text-white btn-lg btn-floating btn-parple me-1">
+                        <button
+                          onClick={() => EditData(el)}
+                          className="btn text-white btn-lg btn-floating btn-parple me-1"
+                        >
                           <i class="fas fa-edit"></i>
                         </button>
                         <button
