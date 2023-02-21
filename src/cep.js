@@ -1,32 +1,34 @@
 import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import "./master.css";
-import TextField from "@material-ui/core/TextField";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import Spdata from "./spdata";
 import Dpdata from "./dpdata";
 import Tpdata from "./tpdata";
 import Single from "./single";
 const CEpanel = () => {
-  const inputReference = useRef(null);
   const navigate = useNavigate();
   const params = useParams();
+  const [sheetdata, setSheetdata] = useState([]);
   const [sheetname, setSheetname] = useState("");
   const [boxno, setBoxno] = useState("");
   const [amount, setAmount] = useState("");
   const [pane, setPane] = useState("panel");
+  const [clientdata, setClientdata] = useState([]);
   const [client, setClient] = useState("");
   const [disabled, setDisabled] = useState("");
   const [spdata, setSpdata] = useState(Spdata);
   const [dpdata, setDpdata] = useState(Dpdata);
   const [tpdata, setTpdata] = useState(Tpdata);
   const [singledata, setSingledata] = useState(Single);
-  const [loginButtonClicked, handleLoginButtonClicked] = React.useState(false);
   const BoxnoRef = React.useRef(null);
   const AmmountRef = React.useRef(null);
-  const buttonForRef = React.useRef(null);
+  const ButtonRef = React.useRef(null);
   useEffect(() => {
     getSheets();
+    getClients();
+    getSheetdata();
+    BoxnoRef.current.focus();
   }, []);
   function getSheets() {
     axios
@@ -34,7 +36,25 @@ const CEpanel = () => {
         `https://jantrisoftware.in/kalyan/sheets/read.php?id=${params.sheetid}`
       )
       .then(function (response) {
-        setSheetname(response.data[0].name);
+        setSheetname(response.data[0]);
+      });
+  }
+  function getClients() {
+    axios
+      .get(`https://jantrisoftware.in/kalyan/clients/read.php`)
+      .then(function (response) {
+        setClientdata(response.data);
+      });
+  }
+  function getSheetdata() {
+    axios
+      .get(
+        `https://jantrisoftware.in/kalyan/sheetdata/read.php?userid=${localStorage.getItem(
+          "userid"
+        )}`
+      )
+      .then(function (response) {
+        setSheetdata(response.data);
       });
   }
   //Entry By Box
@@ -133,8 +153,7 @@ const CEpanel = () => {
   };
   const AddData = (e) => {
     // e.preventDefault();
-
-    /*if (client !== "") {
+    if (client !== "") {
       if (pane === "panel" && boxno.length % 3 === 0 && amount !== 0) {
         for (let i = 0; i < boxno.length / 3; i++) {
           tpdata.map((obj, index) => {
@@ -178,10 +197,40 @@ const CEpanel = () => {
       setAmount("");
     } else {
       alert("No Client Selected");
-    }*/
-    inputReference.current.focus();
+    }
+    BoxnoRef.current.focus();
   };
-
+  const SaveData = () => {
+    const inputs = {
+      userid: localStorage.getItem("userid"),
+      clientid: client,
+      sheetid: sheetname.id,
+      sp: JSON.stringify(spdata),
+      dp: JSON.stringify(dpdata),
+      tp: JSON.stringify(tpdata),
+      ssp: JSON.stringify(singledata),
+    };
+    axios
+      .post(`https://jantrisoftware.in/kalyan/sheetdata/create.php`, inputs)
+      .then(function (response) {
+        console.log(response.data);
+      });
+  };
+  const DeleteSheetData = (dataid) => {
+    //e.preventDefault();
+    const inputs = {
+      dataid: dataid,
+    };
+    axios
+      .post(`https://jantrisoftware.in/kalyan/sheetdata/delete.php`, inputs)
+      .then(function (response) {
+        alert(response.data.message);
+        getSheets();
+        getClients();
+        getSheetdata();
+        BoxnoRef.current.focus();
+      });
+  };
   const handleFocus = (event) => event.target.select();
   const tp = [1, 2];
   const sp = [
@@ -211,7 +260,7 @@ const CEpanel = () => {
                   <h6 className="card-title text-center">E-Panel</h6>
                 </div>
                 <div className="col-4">
-                  <h6 className="card-title text-center">{`${sheetname} Close`}</h6>
+                  <h6 className="card-title text-center">{`${sheetname.name} Close`}</h6>
                 </div>
                 <div className="col-4">
                   <h6 className="card-title text-center">22/01/2023</h6>
@@ -528,39 +577,46 @@ const CEpanel = () => {
               </div>
               <div className="col-7 px-1 mt-2">
                 <input
-                  autofocus={true}
+                  autoFocus={true}
                   type="number"
-                  ref={inputReference}
+                  ref={BoxnoRef}
                   onFocus={handleFocus}
                   name="boxno"
                   onChange={handleBoxno}
                   value={boxno}
                   className="form-control w-100"
                   placeholder="Enter Box Number"
-                  inputProps={{
-                    onKeyPress: (event) => {
-                      const { key } = event;
-                      console.log(key);
-                      if (key === "Enter") {
-                        BoxnoRef.current.focus();
-                      }
-                    },
+                  onKeyPress={(e) => {
+                    console.log(e.key);
+                    if (e.key === "Enter") {
+                      AmmountRef.current.focus();
+                    }
                   }}
                 />
               </div>
               <div className="col-5 px-1 mt-2">
                 <div className="d-flex justify-content-between">
                   <input
+                    autoFocus={true}
                     type="number"
+                    onFocus={handleFocus}
+                    ref={AmmountRef}
                     name="amount"
                     onChange={handleAmmount}
+                    onKeyPress={(e) => {
+                      console.log(e.key);
+                      if (e.key === "Enter") {
+                        ButtonRef.current.focus();
+                      }
+                    }}
                     value={amount}
                     className="form-control Amount-box"
                     placeholder="Amount"
                   />
                   <button
+                    ref={ButtonRef}
                     type="submit"
-                    onClick={AddData}
+                    onFocus={AddData}
                     className="btn btn-info w-100"
                     style={{ borderRadius: "10px" }}
                   >
@@ -576,8 +632,9 @@ const CEpanel = () => {
                   disabled={disabled}
                 >
                   <option value="">Select Client</option>
-                  <option value="Prince Kurmi">Prince Kurmi</option>
-                  <option value="Mayank Gangwar">Mayank Gangwar</option>
+                  {clientdata.map((el) => (
+                    <option value={el.id}>{el.name}</option>
+                  ))}
                 </select>
               </div>
               <div className="col-6 px-1 mt-2">
@@ -593,6 +650,7 @@ const CEpanel = () => {
                   </button>
                   <button
                     type="submit"
+                    onClick={SaveData}
                     className="btn btn-success w-100"
                     style={{ borderRadius: "10px" }}
                   >
@@ -606,29 +664,34 @@ const CEpanel = () => {
 
         {/*Button Close */}
         {/*Open Client  */}
-        <div className="row mt-3">
-          {arr.map((el) => (
-            <div className="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12 mt-2">
-              <div className="card shadows">
-                <div className="card-header p-2">
-                  <div className="d-flex justify-content-between">
-                    <div className="ms-2 my-auto">
-                      <h5 className="card-title mb-0">Prince Kurmi</h5>
-                    </div>
-
+        <div className="row mt-3" style={{ marginBottom: "180px" }}>
+          {sheetdata.map((el) => {
+            return (
+              <div className="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12 mt-2">
+                <div className="card shadows">
+                  <div className="card-header p-2">
                     <div className="d-flex justify-content-between">
-                      <button className="btn text-white btn-lg btn-floating btn-parple me-1">
-                        <i class="fas fa-edit"></i>
-                      </button>
-                      <button className="btn text-white btn-lg btn-danger btn-floating">
-                        <i class="fas fa-trash"></i>
-                      </button>
+                      <div className="ms-2 my-auto">
+                        <h5 className="card-title mb-0">{el.clientname}</h5>
+                      </div>
+
+                      <div className="d-flex justify-content-between">
+                        <button className="btn text-white btn-lg btn-floating btn-parple me-1">
+                          <i class="fas fa-edit"></i>
+                        </button>
+                        <button
+                          onClick={() => DeleteSheetData(el.id)}
+                          className="btn text-white btn-lg btn-danger btn-floating"
+                        >
+                          <i class="fas fa-trash"></i>
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
         {/*Close Client  */}
       </div>
