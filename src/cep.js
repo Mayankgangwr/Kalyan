@@ -214,6 +214,7 @@ const CEpanel = () => {
       .post(`https://jantrisoftware.in/kalyan/sheetdata/create.php`, inputs)
       .then(function (response) {
         console.log(response.data);
+        location.reload();
       });
   };
   const DeleteSheetData = (dataid) => {
