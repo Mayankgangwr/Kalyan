@@ -1,7 +1,6 @@
-import React, { useState } from "react";
-import Dpdata from "../dpdata";
+import React, { useState, useEffect } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-const Dp = () => {
+const Dp = ({ Dpdata }) => {
   const [dpdata, setDpdata] = useState(Dpdata);
   const [operation, setOperation] = useState({
     cutting: "",

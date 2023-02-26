@@ -267,14 +267,25 @@ const CEpanel = () => {
       });
   };
   const EditData = (editsheet) => {
-    setEditSheetid(editsheet.id);
-    setSpdata(JSON.parse(editsheet.sp));
-    setDpdata(JSON.parse(editsheet.dp));
-    setTpdata(JSON.parse(editsheet.tp));
-    setSingledata(JSON.parse(editsheet.single));
-    setEditSheetid(editsheet.id);
-    setClient(editsheet.clientid);
-    setDisabled("disabled");
+    if (client === "") {
+      setEditSheetid(editsheet.id);
+      setSpdata(JSON.parse(editsheet.sp));
+      setDpdata(JSON.parse(editsheet.dp));
+      setTpdata(JSON.parse(editsheet.tp));
+      setSingledata(JSON.parse(editsheet.single));
+      setEditSheetid(editsheet.id);
+      setClient(editsheet.clientid);
+      setDisabled("disabled");
+      ClientName(editsheet.clientid);
+    }
+  };
+  const [clientname, setClientname] = useState("");
+  const ClientName = (client_id) => {
+    const filtered = clientdata.filter((item) => {
+      return item.id == client_id;
+    });
+    setClientname(filtered[0].name);
+    console.log(clientname);
   };
   const handleFocus = (event) => event.target.select();
   const tp = [1, 2];
@@ -625,13 +636,13 @@ const CEpanel = () => {
                   >
                     C/P
                   </button>
-                  <button
-                    type="submit"
+                  <Link
+                    to={`../closemaster/${params.sheetid}`}
                     className="btn btn-primary w-100 ms-1"
                     style={{ borderRadius: "10px" }}
                   >
                     Master
-                  </button>
+                  </Link>
                 </div>
               </div>
               <div className="col-7 px-1 mt-2">
@@ -690,7 +701,11 @@ const CEpanel = () => {
                   className="form-select select-box"
                   disabled={disabled}
                 >
-                  <option value="">Select Client</option>
+                  {client == "" ? (
+                    <option value="">Select Client</option>
+                  ) : (
+                    <option value="">{clientname}</option>
+                  )}
                   {clientdata.map((el) => (
                     <option value={el.id}>{el.name}</option>
                   ))}

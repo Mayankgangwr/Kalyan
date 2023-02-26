@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./home";
 import Layout from "./Layout";
-import CloseMaster from "./CloseMaster/master";
+import Master from "./master";
+import CloseMaster from "./closemaster";
 import OpenMaster from "./OpenMaster/master";
 import Sheets from "./sheets";
 import Clients from "./clients";
@@ -25,6 +26,7 @@ const App = () => {
           <Route path="/clients" element={<Clients />} />
         </Route>
         <Route path="/login" element={<Login />} />
+        <Route path="/master/:sheetid" element={<Master />} />
         <Route path="/openepanel/:sheetid" element={<OpenEpanel />} />
         <Route path="/closeepanel/:sheetid" element={<CEpanel />} />
         <Route path="/closemaster/:sheetid" element={<CloseMaster />} />

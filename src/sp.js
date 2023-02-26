@@ -14,6 +14,7 @@ const Sp = () => {
     };
     ok.push(text);
   }
+  
   console.log(ok);
   let copydata = "";
   for (let i = 0; i < spdata.length; i++) {

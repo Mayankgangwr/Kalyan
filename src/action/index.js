@@ -1,30 +1,30 @@
-export const AddJode = (data) => {
+export const Sheets = (data) => {
   return {
-    type: "AddJode",
+    type: "sheet",
     payload: data,
   };
 };
-export const AddSp = (data) => {
+export const CloseSp = (data) => {
   return {
-    type: "AddSp",
+    type: "CloseSp",
     payload: data,
   };
 };
-export const AddDp = (data) => {
+export const CloseDp = (data) => {
   return {
-    type: "AddDp",
+    type: "CloseDp",
     payload: data,
   };
 };
-export const AddTp = (data) => {
+export const CloseTp = (data) => {
   return {
-    type: "AddTp",
+    type: "CloseTp",
     payload: data,
   };
 };
-export const AddSingle = (data) => {
+export const CloseSingle = (data) => {
   return {
-    type: "AddSingle",
+    type: "CloseSingle",
     payload: data,
   };
 };
