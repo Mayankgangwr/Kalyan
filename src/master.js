@@ -50,8 +50,6 @@ const Master = () => {
           return item;
         }
       });
-      getdatass(value);
-      console.log(newobj);
       setSptempdata(JSON.parse(newobj[0].sp));
       setSpdata(JSON.parse(newobj[0].sp));
     }
@@ -183,7 +181,7 @@ const Master = () => {
                     <label className="box-no">{item.key}</label>
                     <input
                       type="text"
-                      value={item.num}
+                      value={item.num < 1 ? "" : item.num}
                       className="form-control amount-box"
                     />
                   </div>
