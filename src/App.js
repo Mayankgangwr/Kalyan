@@ -4,7 +4,7 @@ import Home from "./home";
 import Layout from "./Layout";
 import Master from "./master";
 import CloseMaster from "./closemaster";
-import OpenMaster from "./OpenMaster/master";
+import OpenMaster from "./openmaster";
 import Sheets from "./sheets";
 import Clients from "./clients";
 import axios from "axios";

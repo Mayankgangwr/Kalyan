@@ -6,8 +6,9 @@ import Spdata from "./spdata";
 import Dpdata from "./dpdata";
 import Tpdata from "./tpdata";
 import Single from "./single";
+import Jodes from "./jode";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-const CloseMaster = () => {
+const OpenMaster = () => {
   const params = useParams();
   const navigate = useNavigate();
   const [numclient, setNumclient] = useState([]);
@@ -19,6 +20,8 @@ const CloseMaster = () => {
   const [tptempdata, setTptempdata] = useState(Tpdata);
   const [sppdata, setSppdata] = useState(Single);
   const [spptempdata, setSpptempdata] = useState(Single);
+  const [jodedata, setJodepdata] = useState(Jodes);
+  const [jodetempdata, setJodetempdata] = useState(Jodes);
   const [sheets, setSheets] = useState("");
 
   const [sheetsdata, setSheetsdata] = useState([]);
@@ -311,7 +314,7 @@ const CloseMaster = () => {
     }
   };
   {
-    /*Tp Operations */
+    /*Spp Operations */
   }
   const [sppoperation, setSppoperation] = useState({
     cutting: "",
@@ -376,6 +379,72 @@ const CloseMaster = () => {
       setCtssp("not");
     }
   };
+  {
+    /*Jode Operations */
+  }
+  const [jodeoperation, setJodeoperation] = useState({
+    cutting: "",
+    less: "",
+  });
+  let jodecopydata = "";
+  for (let i = 0; i < jodedata.length; i++) {
+    const text = `${jodedata[i].key}(${jodedata[i].num})`;
+    if (jodedata[i].key !== "no" && jodedata[i].key !== "na") {
+      jodecopydata = jodecopydata + "" + text;
+    }
+  }
+  const jodehandleChange = (e) => {
+    e.preventDefault();
+    const name = e.target.name;
+    const value = e.target.value;
+    setjodeoperation({ ...jodeoperation, [name]: value });
+  };
+  const [ctjode, setCtjode] = useState("not");
+  const jodehandlecutting = (e) => {
+    e.preventDefault();
+    if (ctjode === "not" && jodeoperation.cutting !== "") {
+      setJodedata(
+        jodedata.map((obj, i) => {
+          if (obj.key == jodedata[i].key && obj.num !== 0) {
+            const sub = obj.num - jodeoperation.cutting;
+            if (sub > 0) {
+              return { ...obj, num: sub };
+            }
+            return { ...obj, num: 0 };
+          }
+          return obj;
+        })
+      );
+      setCtjode("yes");
+    } else {
+      setCtjode("not");
+      setLsjode("not");
+      setJodedata(jodetempdata);
+      setJodeoperation({ ...jodeoperation, cutting: "", less: "" });
+    }
+  };
+  const [lsjode, setLsjode] = useState("not");
+  const jodehandleless = (e) => {
+    e.preventDefault();
+    if (lsjode === "not" && jodeoperation.less !== "") {
+      setJodedata(
+        jodedata.map((obj, i) => {
+          if (obj.key == jodedata[i].key && obj.num !== 0) {
+            const mul = (obj.num * jodeoperation.less) / 100;
+            const res = obj.num - mul;
+            return { ...obj, num: res };
+          }
+          return obj;
+        })
+      );
+      setLsjode("yes");
+    } else {
+      setJodepdata(jodetempdata);
+      setJodeoperation({ cutting: "", less: "" });
+      setLsjode("not");
+      setCtjode("not");
+    }
+  };
   const [lss, setLss] = useState("not");
   useEffect(() => {
     if (lss == "not") {
@@ -390,6 +459,7 @@ const CloseMaster = () => {
   const dp = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
   const tp = [1, 2];
   const spp = [1, 2];
+  const jp = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17];
   return (
     <>
       <div className="fixed-bottom ms-2 mb-2 hide-on-print">
@@ -421,7 +491,7 @@ const CloseMaster = () => {
                   <h6 className="card-title text-center">Master</h6>
                 </div>
                 <div className="col-4">
-                  <h6 className="card-title text-center">{`${sheets.name} Close`}</h6>
+                  <h6 className="card-title text-center">{`${sheets.name} Open`}</h6>
                 </div>
                 <div className="col-4">
                   <h6 className="card-title text-center">22/01/2023</h6>
@@ -657,11 +727,9 @@ const CloseMaster = () => {
               </div>
             </div>
             {/*Button Close */}
-          </div>
-          {/* Dp Panel Close */}
-          {/*Dp Panel Start*/}
-          <div className="col-lg-4 col-md-4 col-12 mt-lg-0 mt-md-0 mt-2 height-on-print  mx-0 px-0">
-            <h6 className="card-title text-center  bg-info pt-1">TP Panel</h6>
+            <h6 className="card-title text-center  bg-info pt-1 mt-2">
+              TP Panel
+            </h6>
             {/*Box Start */}
             {tp.map((el, i) => (
               <div key={el} className="row box-row">
@@ -759,6 +827,121 @@ const CloseMaster = () => {
               </div>
               <div className="col-3">
                 <CopyToClipboard text={tpcopydata}>
+                  <button
+                    type="submit"
+                    onClick={() => alert("Data has been Copy")}
+                    className="btn btn-primary w-100 h-100 buttons"
+                  >
+                    Copy Sheet
+                  </button>
+                </CopyToClipboard>
+              </div>
+            </div>
+            {/*Button Close */}
+          </div>
+          {/* Dp Panel Close */}
+          {/*Dp Panel Start*/}
+          <div className="col-lg-4 col-md-4 col-12 mt-lg-0 mt-md-0 mt-2 height-on-print  mx-0 px-0">
+            <h6 className="card-title text-center  bg-info pt-1">Jode</h6>
+            {/*Box Start */}
+            {jp.map((el, i) => (
+              <div key={el} className="row box-row">
+                {jodedata.slice(6 * i, i * 6 + 6).map((item) => (
+                  <div
+                    key={item.key}
+                    className={`master-col d-flex justify-content-center ${
+                      item.key === "no" ? "d-hidden" : ""
+                    } ${item.key === "na" ? "d-hidden" : ""}`}
+                  >
+                    <label className="box-no">{item.key}</label>
+                    <input
+                      type="text"
+                      value={item.num < 1 ? "" : item.num}
+                      className="form-control amount-box"
+                    />
+                  </div>
+                ))}
+                <div className="total-col ps-0">
+                  <label className="total-no">
+                    <b>
+                      {jodedata
+                        .slice(6 * i, i * 6 + 6)
+                        .reduce((total, item) => {
+                          return total + item.num;
+                        }, 0)}
+                    </b>
+                  </label>
+                </div>
+              </div>
+            ))}
+            {/*Box Close */}
+            {/*Grand Total Open */}
+            <div className="row box-row">
+              <div
+                className="master-col d-flex justify-content-center"
+                style={{ width: "86.4%" }}
+              >
+                <label className="grand-total-no ms-auto">
+                  <b className="text-dark">Total</b>
+                </label>
+              </div>
+              <div className="total-col ps-0">
+                <label className="grand-total-no mt-1">
+                  <b>
+                    {jodedata.reduce((total, item) => {
+                      return total + item.num;
+                    }, 0)}
+                  </b>
+                </label>
+              </div>
+            </div>
+            {/*Grand Total Close */}
+            {/*Button Open */}
+            <div className="row hide-on-print box-row mt-2">
+              <div className="col-9">
+                <div className="row">
+                  <div className="col-6 px-1">
+                    <input
+                      type="number"
+                      name="cutting"
+                      value={jodeoperation.cutting}
+                      onChange={jodehandleChange}
+                      className="form-control w-100 box-h"
+                      placeholder="Cutting"
+                    />
+                  </div>
+                  <div className="col-6 px-1">
+                    <button
+                      type="submit"
+                      onClick={jodehandlecutting}
+                      className="btn btn-primary w-100  buttons px-1"
+                    >
+                      Cutting
+                    </button>
+                  </div>
+                  <div className="col-6 px-1 mt-2">
+                    <input
+                      type="number"
+                      name="less"
+                      value={jodeoperation.less}
+                      onChange={jodehandleChange}
+                      className="form-control w-100 box-h"
+                      placeholder="less"
+                    />
+                  </div>
+                  <div className="col-6 px-1 mt-2">
+                    <button
+                      type="submit"
+                      onClick={jodehandleless}
+                      className="btn btn-primary w-100 buttons px-1"
+                    >
+                      Less
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div className="col-3">
+                <CopyToClipboard text={jodecopydata}>
                   <button
                     type="submit"
                     onClick={() => alert("Data has been Copy")}
@@ -932,4 +1115,4 @@ const CloseMaster = () => {
     </>
   );
 };
-export default CloseMaster;
+export default OpenMaster;

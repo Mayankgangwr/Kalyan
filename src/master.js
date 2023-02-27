@@ -42,7 +42,7 @@ const Master = () => {
     window.print();
     //alert("printed");
   };
-  function getSheetData(e) {
+  const getSheetData = async (e) => {
     const { value, checked } = e.target;
     if (value != "" && checked == true) {
       const newobj = sheetsdata.filter((item) => {
@@ -50,13 +50,23 @@ const Master = () => {
           return item;
         }
       });
-      setSptempdata(JSON.parse(newobj[0].sp));
-      setSpdata(JSON.parse(newobj[0].sp));
+      const sparr = JSON.parse(newobj[0].sp);
+      let sp = [];
+      for (let i = 0; i < spdata.length; i++) {
+        const text = {
+          key: spdata[i].key,
+          num: spdata[i].num + sparr[i].num,
+        };
+        sp.push(text);
+      }
+      console.log(sp);
+      setSptempdata(sp);
+      setSpdata(sp);
     }
     if (value != "" && checked == false) {
       setSpdata(Spdata);
     }
-  }
+  };
   {
     /* Sp Operations*/
   }
@@ -167,7 +177,7 @@ const Master = () => {
         <div className="row">
           {/*Ps Panel Start*/}
           <div className="col-lg-4 col-md-4 col-12 height-on-print mx-0 px-0">
-            <h6 className="card-title text-center bg-info pt-1">SP Panel</h6>
+            <h6 className="card-title text-center bg-info pt-1">{`SP Panel ${numclient}`}</h6>
             {/*Box Start */}
             {sp.map((el, i) => (
               <div key={el} className="row box-row">
@@ -284,10 +294,17 @@ const Master = () => {
         <div className="row mt-3" style={{ marginBottom: "180px" }}>
           {sheetsdata.map((el, i) => {
             return (
-              <div
+              <label
                 key={i}
                 className="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12 mt-2"
               >
+                <input
+                  type="checkbox"
+                  name="sheetnames"
+                  style={{ display: "none" }}
+                  value={el.id}
+                  onChange={getSheetData}
+                />
                 <div className="card shadows">
                   <div className="card-header p-2">
                     <div className="d-flex justify-content-between">
@@ -308,18 +325,10 @@ const Master = () => {
                             }, 0)}
                         </p>
                       </div>
-                      <div className="d-flex justify-content-between">
-                        <input
-                          type="radio"
-                          name="sheetnames"
-                          value={el.id}
-                          onChange={getSheetData}
-                        />
-                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </label>
             );
           })}
         </div>

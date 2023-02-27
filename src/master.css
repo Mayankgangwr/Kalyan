@@ -112,3 +112,6 @@ input[type="number"]::-webkit-outer-spin-button {
     color: red;
   }
 }
+input:checked + .card {
+  background-color: #a8a2a26b !important;
+}
