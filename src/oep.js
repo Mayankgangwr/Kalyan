@@ -7,9 +7,7 @@ import Dpdata from "./dpdata";
 import Tpdata from "./tpdata";
 import Single from "./single";
 import Jodes from "./jode";
-import Popup from "reactjs-popup";
-import "reactjs-popup/dist/index.css";
-const OpenEpanel = () => {
+const OEpanel = () => {
   const current = new Date();
   const date = `${current.getDate()}-${
     current.getMonth() + 1
@@ -229,13 +227,31 @@ const OpenEpanel = () => {
         sp: JSON.stringify(spdata),
         dp: JSON.stringify(dpdata),
         tp: JSON.stringify(tpdata),
-        jp: JSON.stringify(jpdata),
         ssp: JSON.stringify(singledata),
+        total:
+          spdata.reduce((total, item) => {
+            return total + JSON.parse(item.num);
+          }, 0) +
+          dpdata.reduce((total, item) => {
+            return total + JSON.parse(item.num);
+          }, 0) +
+          tpdata.reduce((total, item) => {
+            return total + JSON.parse(item.num);
+          }, 0) +
+          jpdata.reduce((total, item) => {
+            return total + JSON.parse(item.num);
+          }, 0) +
+          singledata.reduce((total, item) => {
+            return total + JSON.parse(item.num);
+          }, 0),
       };
       axios
-        .post(`https://jantrisoftware.in/kalyan/Osheetdata/update.php`, inputs)
+        .post(`https://jantrisoftware.in/kalyan/sheetdata/update.php`, inputs)
         .then(function (response) {
-          alert(response.data.message);
+          alert(response.data);
+          if (response.data.message !== "") {
+            return <></>;
+          }
           /*getSheets();
         getClients();
         getSheetdata();
@@ -256,6 +272,22 @@ const OpenEpanel = () => {
         tp: JSON.stringify(tpdata),
         jp: JSON.stringify(jpdata),
         ssp: JSON.stringify(singledata),
+        total:
+          spdata.reduce((total, item) => {
+            return total + JSON.parse(item.num);
+          }, 0) +
+          dpdata.reduce((total, item) => {
+            return total + JSON.parse(item.num);
+          }, 0) +
+          tpdata.reduce((total, item) => {
+            return total + JSON.parse(item.num);
+          }, 0) +
+          jpdata.reduce((total, item) => {
+            return total + JSON.parse(item.num);
+          }, 0) +
+          singledata.reduce((total, item) => {
+            return total + JSON.parse(item.num);
+          }, 0),
       };
       axios
         .post(`https://jantrisoftware.in/kalyan/Osheetdata/create.php`, inputs)
@@ -289,8 +321,9 @@ const OpenEpanel = () => {
         location.reload();
       });
   };
-  const EditData = (editsheet) => {
+  const EditDatas = (editsheet) => {
     if (client === "") {
+      console.log(JSON.parse(editsheet.sp));
       setEditSheetid(editsheet.id);
       setSpdata(JSON.parse(editsheet.sp));
       setDpdata(JSON.parse(editsheet.dp));
@@ -467,7 +500,7 @@ const OpenEpanel = () => {
               </div>
             </div>
             {/*Grand Total Close */}
-            <h6 className="card-title text-center mt-2 bg-info pt-1">
+            <h6 className="card-title text-center mt-1 bg-info pt-1">
               TP Panel
             </h6>
             {/*Box Start */}
@@ -527,7 +560,7 @@ const OpenEpanel = () => {
           {/* Dp Panel Close */}
           {/*Dp Panel Start*/}
           <div className="col-lg-4 col-md-4 col-12 mt-lg-0 mt-md-0 mt-2  mx-0 px-0">
-            <h6 className="card-title text-center  bg-info pt-1">Jode</h6>
+            <h6 className="card-title text-center  bg-info pt-1">JODE</h6>
             {/*Box Start */}
             {jp.map((el, i) => (
               <div key={i} className="row box-row">
@@ -551,7 +584,7 @@ const OpenEpanel = () => {
                 <div className="total-col ps-0">
                   <label className="total-no">
                     <b>
-                      {jpdata.slice(6 * i, i * 6 + 6).reduce((total, item) => {
+                      {tpdata.slice(6 * i, i * 6 + 6).reduce((total, item) => {
                         return total + JSON.parse(item.num);
                       }, 0)}
                     </b>
@@ -843,28 +876,11 @@ const OpenEpanel = () => {
                     <div className="d-flex justify-content-between">
                       <div className="ms-2 my-auto">
                         <h5 className="card-title mb-0">{el.clientname}</h5>
-                        <p>
-                          {JSON.parse(el.sp).reduce((total, item) => {
-                            return total + JSON.parse(item.num);
-                          }, 0) +
-                            JSON.parse(el.dp).reduce((total, item) => {
-                              return total + JSON.parse(item.num);
-                            }, 0) +
-                            JSON.parse(el.tp).reduce((total, item) => {
-                              return total + JSON.parse(item.num);
-                            }, 0) +
-                            JSON.parse(el.jp).reduce((total, item) => {
-                              return total + JSON.parse(item.num);
-                            }, 0) +
-                            JSON.parse(el.single).reduce((total, item) => {
-                              return total + JSON.parse(item.num);
-                            }, 0)}
-                        </p>
+                        <p>{el.total}</p>
                       </div>
-
                       <div className="d-flex justify-content-between">
                         <button
-                          onClick={() => EditData(el)}
+                          onClick={() => EditDatas(el)}
                           className="btn text-white btn-lg btn-floating btn-parple me-1"
                         >
                           <i class="fas fa-edit"></i>
@@ -889,4 +905,4 @@ const OpenEpanel = () => {
   );
 };
 
-export default OpenEpanel;
+export default OEpanel;

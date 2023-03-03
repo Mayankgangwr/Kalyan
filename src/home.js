@@ -162,52 +162,50 @@ const Home = () => {
                     className="card-body p-2"
                     style={{ backgroundColor: "#FDF" }}
                   >
-                    <div className="d-flex justify-content-between mt-2 mb-1">
+                    <div className="d-flex justify-content-between">
                       <div className="">
                         <h4>Open</h4>
                       </div>
-                      <button className="btn btn-sm btn-primary rounded-pill">
-                        <small>Declare</small>
-                      </button>
-                      <button className="btn btn-sm btn-primary rounded-pill">
-                        <Link className="text-light" to={`openmaster/${el.id}`}>
+                      <Link className="text-light" href={`declear/${el.id}`}>
+                        <button className="btn btn-sm btn-primary rounded-pill">
+                          <small>Declare</small>
+                        </button>
+                      </Link>
+                      <a className="text-light" href={`openmaster/${el.id}`}>
+                        <button className="btn btn-sm btn-primary rounded-pill">
                           <small>Master</small>
-                        </Link>
-                      </button>
-                      <button className="btn btn-sm btn-primary rounded-pill">
-                        <Link className="text-light" to={`openepanel/${el.id}`}>
+                        </button>
+                      </a>
+                      <a className="text-light" href={`openepanel/${el.id}`}>
+                        <button className="btn btn-sm btn-primary rounded-pill">
                           <small>E-Panel</small>
-                        </Link>
-                      </button>
+                        </button>
+                      </a>
                     </div>
                   </div>
                   <div
                     className="card-footer p-2"
                     style={{ backgroundColor: "rgb(206 194 206)" }}
                   >
-                    <div className="d-flex justify-content-between mt-2 mb-1">
+                    <div className="d-flex justify-content-between">
                       <div className="">
                         <h4>Close</h4>
                       </div>
-                      <button className="btn btn-sm btn-primary rounded-pill">
-                        <small>Declare</small>
-                      </button>
-                      <button className="btn btn-sm btn-primary rounded-pill">
-                        <Link
-                          className="text-light"
-                          to={`closemaster/${el.id}`}
-                        >
+                      <Link className="text-light" to={`declear/${el.id}`}>
+                        <button className="btn btn-sm btn-primary rounded-pill">
+                          <small>Declare</small>
+                        </button>
+                      </Link>
+                      <Link className="text-light" to={`closemaster/${el.id}`}>
+                        <button className="btn btn-sm btn-primary rounded-pill">
                           <small>Master</small>
-                        </Link>
-                      </button>
-                      <button className="btn btn-sm btn-primary rounded-pill">
-                        <Link
-                          className="text-light"
-                          to={`closeepanel/${el.id}`}
-                        >
+                        </button>
+                      </Link>
+                      <a className="text-light" href={`closeepanel/${el.id}`}>
+                        <button className="btn btn-sm btn-primary rounded-pill">
                           <small>E-Panel</small>
-                        </Link>
-                      </button>
+                        </button>
+                      </a>
                     </div>
                   </div>
                 </div>

@@ -20,7 +20,7 @@ const OpenMaster = () => {
   const [tptempdata, setTptempdata] = useState(Tpdata);
   const [sppdata, setSppdata] = useState(Single);
   const [spptempdata, setSpptempdata] = useState(Single);
-  const [jodedata, setJodepdata] = useState(Jodes);
+  const [jodedata, setJodedata] = useState(Jodes);
   const [jodetempdata, setJodetempdata] = useState(Jodes);
   const [sheets, setSheets] = useState("");
 
@@ -42,7 +42,7 @@ const OpenMaster = () => {
   function getSheetsdata() {
     axios
       .get(
-        `https://jantrisoftware.in/kalyan/sheetdata/read.php?userid=${localStorage.getItem(
+        `https://jantrisoftware.in/kalyan/Osheetdata/read.php?userid=${localStorage.getItem(
           "userid"
         )}&sheetid=${params.sheetid}`
       )
@@ -89,6 +89,15 @@ const OpenMaster = () => {
         };
         tp.push(text);
       }
+      const jparr = JSON.parse(newobj[0].jp);
+      let jp = [];
+      for (let i = 0; i < jodedata.length; i++) {
+        const text = {
+          key: jodedata[i].key,
+          num: jodedata[i].num + jparr[i].num,
+        };
+        jp.push(text);
+      }
       const singlearr = JSON.parse(newobj[0].single);
       let single = [];
       for (let i = 0; i < sppdata.length; i++) {
@@ -105,6 +114,8 @@ const OpenMaster = () => {
       setDpdata(dp);
       setTptempdata(tp);
       setTpdata(tp);
+      setJodedata(jp);
+      setJodetempdata(jp);
       setSpptempdata(single);
       setSppdata(single);
     }
@@ -331,7 +342,7 @@ const OpenMaster = () => {
     e.preventDefault();
     const name = e.target.name;
     const value = e.target.value;
-    setsppoperation({ ...sppoperation, [name]: value });
+    setSppoperation({ ...sppoperation, [name]: value });
   };
   const [ctspp, setCtspp] = useState("not");
   const spphandlecutting = (e) => {
@@ -361,7 +372,7 @@ const OpenMaster = () => {
   const spphandleless = (e) => {
     e.preventDefault();
     if (lsspp === "not" && sppoperation.less !== "") {
-      setsppdata(
+      setSppdata(
         sppdata.map((obj, i) => {
           if (obj.key == sppdata[i].key && obj.num !== 0) {
             const mul = (obj.num * sppoperation.less) / 100;
@@ -371,12 +382,12 @@ const OpenMaster = () => {
           return obj;
         })
       );
-      setLsssp("yes");
+      setLsspp("yes");
     } else {
       setSppdata(spptempdata);
-      setSspoperation({ cutting: "", less: "" });
-      setLsssp("not");
-      setCtssp("not");
+      setSppoperation({ cutting: "", less: "" });
+      setLsspp("not");
+      setCtspp("not");
     }
   };
   {
@@ -397,7 +408,7 @@ const OpenMaster = () => {
     e.preventDefault();
     const name = e.target.name;
     const value = e.target.value;
-    setjodeoperation({ ...jodeoperation, [name]: value });
+    setJodeoperation({ ...jodeoperation, [name]: value });
   };
   const [ctjode, setCtjode] = useState("not");
   const jodehandlecutting = (e) => {
@@ -439,7 +450,7 @@ const OpenMaster = () => {
       );
       setLsjode("yes");
     } else {
-      setJodepdata(jodetempdata);
+      setJodedata(jodetempdata);
       setJodeoperation({ cutting: "", less: "" });
       setLsjode("not");
       setCtjode("not");

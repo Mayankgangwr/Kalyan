@@ -6,7 +6,13 @@ import Spdata from "./spdata";
 import Dpdata from "./dpdata";
 import Tpdata from "./tpdata";
 import Single from "./single";
+import Popup from "reactjs-popup";
+import "reactjs-popup/dist/index.css";
 const CEpanel = () => {
+  const current = new Date();
+  const date = `${current.getDate()}-${
+    current.getMonth() + 1
+  }-${current.getFullYear()}`;
   const navigate = useNavigate();
   const params = useParams();
   const [editsheetid, setEditSheetid] = useState("");
@@ -214,7 +220,10 @@ const CEpanel = () => {
       axios
         .post(`https://jantrisoftware.in/kalyan/sheetdata/update.php`, inputs)
         .then(function (response) {
-          console.log(response.data);
+          alert(response.data);
+          if (response.data.message !== "") {
+            return <></>;
+          }
           /*getSheets();
         getClients();
         getSheetdata();
@@ -264,6 +273,7 @@ const CEpanel = () => {
         getClients();
         getSheetdata();
         BoxnoRef.current.focus();
+        location.reload();
       });
   };
   const EditData = (editsheet) => {
@@ -319,7 +329,7 @@ const CEpanel = () => {
                   <h6 className="card-title text-center">{`${sheetname.name} Close`}</h6>
                 </div>
                 <div className="col-4">
-                  <h6 className="card-title text-center">22/01/2023</h6>
+                  <h6 className="card-title text-center">{date}</h6>
                 </div>
               </div>
             </div>
@@ -735,7 +745,6 @@ const CEpanel = () => {
             </div>
           </div>
         </div>
-
         {/*Button Close */}
         {/*Open Client  */}
         <div className="row mt-3" style={{ marginBottom: "180px" }}>

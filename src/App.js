@@ -8,11 +8,10 @@ import OpenMaster from "./openmaster";
 import Sheets from "./sheets";
 import Clients from "./clients";
 import axios from "axios";
-import OpenEpanel from "./epanelopen";
-import CloseEpanel from "./epanelclose";
 import CEpanel from "./cep";
-import { useSelector, useDispatch } from "react-redux";
-import { ReadOrder } from "./action/index";
+import OEpanel from "./oep";
+import CloseEpanel from "./epanelclose";
+import OpenEpanel from "./epanelopen";
 import Login from "./login";
 import "./styles.css";
 
@@ -26,9 +25,8 @@ const App = () => {
           <Route path="/clients" element={<Clients />} />
         </Route>
         <Route path="/login" element={<Login />} />
-        <Route path="/master/:sheetid" element={<Master />} />
         <Route path="/openepanel/:sheetid" element={<OpenEpanel />} />
-        <Route path="/closeepanel/:sheetid" element={<CEpanel />} />
+        <Route path="/closeepanel/:sheetid" element={<CloseEpanel />} />
         <Route path="/closemaster/:sheetid" element={<CloseMaster />} />
         <Route path="/openmaster/:sheetid" element={<OpenMaster />} />
       </Routes>
